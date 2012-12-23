@@ -35,45 +35,60 @@
     <h1 class="row">Capharnaüm - fiche de perso web interactive</h1>
     <div class="row">
         <fieldset>
-            <legend>Informations générales</legend>
+            <legend>Étapes de la création</legend>
 
             <div class="row">
                 <div class="six columns">
-                    <label for="general_1">Nom</label>
-                    <input type="text" id="general_1">
+                    <fieldset>
+                        <legend>1. Le Sang et la Parole</legend>
+                        <p>
+                            <label for="sang">Sang</label>
+                            <select name="sang" id="sang">
+                                <option value="">— Sélectionner —</option>
+                                <option value="saabi">Saabi</option>
+                                <option value="shiradi">Shiradi</option>
+                                <option value="escarte">Escarte</option>
+                                <option value="agalantheen">Agalanthéen</option>
+                            </select>
+                        </p>
+                        <p>
+                            <label id="libelle_tribu" for="general_3">Tribu/Nation/Cité-état</label>
+                            <select name="tribu" id="tribu">
+                                <option value="" selected="">— Choisir un sang… —</option>
+                            </select>
+                        </p>
+                        <p>
+                            <label for="general_5">Parole</label>
+                            <select name="parole" id="parole">
+                                <option value="">[La la la lalala]</option>
+                            </select>
+                        </p>
+                    </fieldset>
                 </div>
                 <div class="six columns">
-                    <label for="sang">Sang</label>
-                    <select name="sang" id="sang">
-                        <option value="">— Sélectionner —</option>
-                        <option value="saabi">Saabi</option>
-                        <option value="shiradi">Shiradi</option>
-                        <option value="escarte">Escarte</option>
-                        <option value="agalantheen">Agalanthéen</option>
-                    </select>
+                    <fieldset>
+                        <legend>2. Vertus Héroïques</legend>
+                        <p>Répartir 10 points entre Bravoure, Fidélité et Foi. Minimum 1, maximum 6.</p>
+                    </fieldset>
                 </div>
             </div>
             <div class="row">
                 <div class="six columns">
-                    <label for="general_4">Statut</label>
-                    <input type="text" id="general_4">
+                    <fieldset>
+                        <legend>3. Caractéristiques</legend>
+                    </fieldset>
                 </div>
-                <div class="six columns" id="tribu_container">
-                    <label id="libelle_tribu" for="general_3">Tribu/Nation/Cité-état</label>
-                    <select name="tribu" id="tribu">
-                        <option value="" selected="">— Choisir un sang… —</option>
-                    </select>
+                <div class="six columns">
+                    <fieldset>
+                        <legend>4. Figures et compétences</legend>
+                    </fieldset>
                 </div>
-
             </div>
             <div class="row">
-                <div class="six columns">
-                    <label for="general_5">Parole</label>
-                    <input type="text" id="general_5">
-                </div>
-                <div class="six columns">
-                    <label for="general_6">Occupation actuelle</label>
-                    <input type="text" id="general_6">
+                <div class="twelve columns">
+                    <fieldset>
+                        <legend>5. Finitions</legend>
+                    </fieldset>
                 </div>
             </div>
         </fieldset>
