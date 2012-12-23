@@ -36,37 +36,72 @@ jQuery(document).ready(function() {
 			{
 				'cle': 'rachid',
 				'libelle': 'Ibn Rachid Abd-al-Hassan',
-				'bonus': []
+				'bonus': [
+					'souffle+1',
+					'arme+1',
+					'assassinat+1',
+					'poesie+1'
+				]
 			},
 			{
 				'cle' : 'yucef',
 				'libelle': 'Ibn Yucef Abd-al-Salif',
-				'bonus': []
+				'bonus': [
+					'sagesse|charme+1',
+					'flatter+1',
+					'negoce+1',
+					'periple+1'
+				]
 			},
 			{
 				'cle' : 'aziz',
 				'libelle': 'Ibn Aziz Abd-al-Salif',
-				'bonus': []
+				'bonus': [
+					'coordination+1',
+					'arme+1',
+					'detrousser+1',
+					'negoce+1',
+				]
 			},
 			{
 				'cle' : 'khalil',
 				'libelle': 'Ibn Khalil Abd-al-Salif',
-				'bonus': []
+				'bonus': [
+					'souffle+1',
+					'agriculture+1',
+					'equitation+1',
+					'periple+1'
+				]
 			},
 			{
 				'cle' : 'tufiq',
 				'libelle' : 'Ibn Tufiq Abd-al-Tarek',
-				'bonus' : []
+				'bonus' : [
+					'puissance+1',
+					'arme+1',
+					'entrainer+1',
+					'priere+1'
+				]
 			},
 			{
 				'cle' : 'mimoun',
 				'libelle' : 'Ibn Mimoun Abd-al-Tarek',
-				'bonus' : []
+				'bonus' : [
+					'charme+1',
+					'assassinat|verbe_sacre+1',
+					'discretion+1',
+					'flatter+1'
+				]
 			},
 			{
 				'cle' : 'mammud',
 				'libelle' : 'Ibn Mammûd Abd-al-Tarek',
-				'bonus' : []
+				'bonus' : [
+					'coordination|charme+1',
+					'periple+1',
+					'priere+1',
+					'verbe_sacre+1'
+				]
 			}
 			]
 		},
@@ -76,17 +111,31 @@ jQuery(document).ready(function() {
 			{
 				'cle' : 'ashkenim',
 				'libelle' : 'Ashkenim',
-				'bonus' : []
+				'bonus' : [
+					'coordination|charme+1',
+					'arme+1',
+					'npplf+1',
+					'elegance+1'
+				]
 			},
 			{
 				'cle' : 'pharatim',
 				'libelle' : 'Pharatim',
-				'bonus' : []
+				'bonus' : [
+					'sagesse+1',
+					'enseigner+1',
+					'ppl_histoire+1',
+					'science+1'
+				]
 			},
 			{
 				'cle' : 'salonim',
 				'libelle' : 'Salonim',
-				'bonus' : []
+				'bonus' : [
+					'sagesse+1',
+					'assassinat+1',
+					'science+2'
+				]
 			}
 			]
 		},
@@ -96,17 +145,32 @@ jQuery(document).ready(function() {
 			{
 				'cle' : 'thereme',
 				'libelle' : 'Thérème',
-				'bonus' : []
+				'bonus' : [
+					'coordination+1',
+					'arme+1',
+					'equitation+1',
+					'elegance+1'
+				]
 			},
 			{
 				'cle' : 'fragrance',
 				'libelle' : 'Fragrance',
-				'bonus' : []
+				'bonus' : [
+					'coordination|charme+1',
+					'agriculture+1',
+					'equitation+1',
+					'elegance+1'
+				]
 			},
 			{
 				'cle' : 'etrusie',
 				'libelle' : 'Étrusie',
-				'bonus' : []
+				'bonus' : [
+					'souffle|charme+1',
+					'agriculture+1',
+					'tenir_le_coup+1',
+					'elegance+1'
+				]
 			}
 			]
 		},
@@ -116,17 +180,32 @@ jQuery(document).ready(function() {
 			{
 				'cle' : 'aragon',
 				'libelle' : 'Aragón',
-				'bonus' : []
+				'bonus' : [
+					'coordination|charme+1',
+					'agriculture+1',
+					'equitation+1',
+					'elegance+1'
+				]
 			},
 			{
 				'cle' : 'occidentine',
 				'libelle' : 'Occidentine',
-				'bonus' : []
+				'bonus' : [
+					'puissance|sagesse+1',
+					'agriculture+1',
+					'npplf+1',
+					'elegance+1'
+				]
 			},
 			{
 				'cle' : 'dorkadie',
 				'libelle' : 'Dorkadie',
-				'bonus' : []
+				'bonus' : [
+					'puissance|souffle+1',
+					'arme+1',
+					'epreuve+1',
+					'periple+1'
+				]
 			}
 			]
 		}
@@ -135,7 +214,7 @@ jQuery(document).ready(function() {
 	// caracs
 	var keys_caracs = ['coordination', 'charme', 'puissance', 'souffle', 'sagesse'];
 	var keys_comps = [
-		'epreuve', 'equitation','contes','periples',
+		'epreuve', 'equitation','contes','periple',
 		'science','enseigner','ppl_histoire', 'percevoir',
 		'npplf', 'elegance', 'flatter', 'negoce',
 		'inspiration', 'priere', 'sacrifice', 'verbe_sacre',
@@ -242,6 +321,7 @@ jQuery(document).ready(function() {
 				comps[key] = comps[key] + this.bonus_sang[key];
 			}
 		}
+		console.log(comps, caracs);
 	}
 
 	perso.synchroWithView = function() {
