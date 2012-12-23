@@ -3,39 +3,122 @@ jQuery(document).ready(function() {
 		'saabi' : {
 			'libelle': "Clan",
 			'valeurs': [
-				{
-					'cle': 'malik',
-					'libelle': 'Ibn Malik Abd-Al-Hassan',
-					'bonus': [
-						'coordination|puissance+1',
-						'comp_armes+1',
-						'comp_commander+1',
-						'comp_entrainement+1'
-					]
-				},
-				{
-					'cle': 'mussah',
-					'libelle': 'Ibn Mussah Abd-Al-Hassan',
-					'bonus': [
-						'charme+1',
-						'comp_npplf+1',
-						'comp_elegance+1',
-						'comp_flatter+1'
-					]
-				}			
+			{
+				'cle': 'malik',
+				'libelle': 'Ibn Malik Abd-al-Hassan',
+				'bonus': [
+				'coordination|puissance+1',
+				'comp_armes+1',
+				'comp_commander+1',
+				'comp_entrainement+1'
+				]
+			},
+			{
+				'cle': 'mussah',
+				'libelle': 'Ibn Mussah Abd-al-Hassan',
+				'bonus': [
+				'charme+1',
+				'comp_npplf+1',
+				'comp_elegance+1',
+				'comp_flatter+1'
+				]
+			},
+			{
+				'cle': 'rachid',
+				'libelle': 'Ibn Rachid Abd-al-Hassan',
+				'bonus': []
+			},
+			{
+				'cle' : 'yucef',
+				'libelle': 'Ibn Yucef Abd-al-Salif',
+				'bonus': []
+			},
+			{
+				'cle' : 'aziz',
+				'libelle': 'Ibn Aziz Abd-al-Salif',
+				'bonus': []
+			},
+			{
+				'cle' : 'khalil',
+				'libelle': 'Ibn Khalil Abd-al-Salif',
+				'bonus': []
+			},
+			{
+				'cle' : 'tufiq',
+				'libelle' : 'Ibn Tufiq Abd-al-Tarek',
+				'bonus' : []
+			},
+			{
+				'cle' : 'mimoun',
+				'libelle' : 'Ibn Mimoun Abd-al-Tarek',
+				'bonus' : []
+			},
+			{
+				'cle' : 'mammud',
+				'libelle' : 'Ibn Mammûd Abd-al-Tarek',
+				'bonus' : []
+			}
 			]
 		},
 		'shiradi' : {
 			'libelle': 'Tribu',
-			'valeurs' : []
+			'valeurs' : [
+			{
+				'cle' : 'ashkenim',
+				'libelle' : 'Ashkenim',
+				'bonus' : []
+			},
+			{
+				'cle' : 'pharatim',
+				'libelle' : 'Pharatim',
+				'bonus' : []
+			},
+			{
+				'cle' : 'salonim',
+				'libelle' : 'Salonim',
+				'bonus' : []
+			}
+			]
 		},
 		'agalantheen' : {
-			'libelle': 'Cité-état',
-			'valeurs' : []
+			'libelle': 'Cité',
+			'valeurs' : [
+			{
+				'cle' : 'thereme',
+				'libelle' : 'Thérème',
+				'bonus' : []
+			},
+			{
+				'cle' : 'fragrance',
+				'libelle' : 'Fragrance',
+				'bonus' : []
+			},
+			{
+				'cle' : 'etrusie',
+				'libelle' : 'Étrusie',
+				'bonus' : []
+			}
+			]
 		},
 		'escarte' : {
 			'libelle' : 'Nation',
-			'valeurs' : []
+			'valeurs' : [
+			{
+				'cle' : 'aragon',
+				'libelle' : 'Aragón',
+				'bonus' : []
+			},
+			{
+				'cle' : 'occidentine',
+				'libelle' : 'Occidentine',
+				'bonus' : []
+			},
+			{
+				'cle' : 'dorkadie',
+				'libelle' : 'Dorkadie',
+				'bonus' : []
+			}
+			]
 		}
 	};
 
