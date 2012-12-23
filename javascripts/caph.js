@@ -17,20 +17,20 @@ jQuery(document).ready(function() {
 				'cle': 'malik',
 				'libelle': 'Ibn Malik Abd-al-Hassan',
 				'bonus': [
-				'coordination|puissance+1',
-				'comp_armes+1',
-				'comp_commander+1',
-				'comp_entrainement+1'
+					'coordination|puissance+1',
+					'arme+1',
+					'commander+1',
+					'entrainer+1'
 				]
 			},
 			{
 				'cle': 'mussah',
 				'libelle': 'Ibn Mussah Abd-al-Hassan',
 				'bonus': [
-				'charme+1',
-				'comp_npplf+1',
-				'comp_elegance+1',
-				'comp_flatter+1'
+					'charme+1',
+					'npplf+1',
+					'elegance+1',
+					'flatter+1'
 				]
 			},
 			{
@@ -139,7 +139,14 @@ jQuery(document).ready(function() {
 		'science','enseigner','ppl_histoire', 'percevoir',
 		'npplf', 'elegance', 'flatter', 'negoce',
 		'inspiration', 'priere', 'sacrifice', 'verbe_sacre',
-		
+		'arme', 'commander', 'entrainer', 'impressionner',
+		'galvaniser', 'comedie', 'poesie', 'musique',
+		'assassinat', 'detrousser', 'discretion', 's_introduire',
+		'agriculture', 'artisanat', 'compagnonnage', 'tenir_le_coup',
+		];
+	var keys_figures = [
+		'aventurer', 'sage', 'prince', 'sorcier',
+		'guerrier', 'poete', 'malandrin', 'travailleur'
 		];
 	var keys_vertus = ['bravoure', 'foi', 'fidelite'];
 
@@ -169,6 +176,7 @@ jQuery(document).ready(function() {
 	$('#tribu').change(function() {
 		var value = $(this).val();
 		perso.tribu = value;
+		perso.bonus_sang = {};
 		var sang_tribus = arbo_sang[perso.sang].valeurs;
 		for (var i = 0; i < sang_tribus.length; i++) {
 			var tribu = sang_tribus[i];
@@ -183,11 +191,37 @@ jQuery(document).ready(function() {
 		}
 	});
 
-	perso.applyBonus = function(bonus_str, bonus_key) {
+	perso.applyBonus = function(bonus_str, bonus_key, async) {
 		var kv = bonus_str.split('+');
 		var key = kv[0];
 		var val = parseInt(kv[1]);
+
+		if (key.split('|').length > 1) {
+			// there is a choice to do.
+			var choices = key.split('|');
+			var popin = $('#lapopin');
+			popin.html('');
+			var el = $('<div></div>');
+			el.append('<h2>Choix à faire...</h2>');
+			for (var i = 0; i < choices.length; i++) {
+				var button = $('<button>'+choices[i]+'</button>');
+				var new_bonus_str = choices[i]+'+'+val;
+				button.click( function(i) {
+					return function() {
+						perso.applyBonus(i, bonus_key, true);
+						popin.trigger('reveal:close');
+					};
+				}(new_bonus_str));
+				el.append(button);
+			}
+			popin.append(el);
+			popin.reveal();
+			return;
+		}
 		this[bonus_key][key] = val;
+		if (async) {
+			perso.calculeTotaux();
+		}
 	}
 
 	perso.calculeTotaux = function() {
@@ -201,6 +235,14 @@ jQuery(document).ready(function() {
 				caracs[key] = caracs[key] + this.bonus_sang[key];
 			}
 		}
+		for (var i = 0; i < keys_comps.length; i++) {
+			var key = keys_comps[i];
+			comps[key] = 0;
+			if (this.bonus_sang[key] != undefined) {
+				comps[key] = comps[key] + this.bonus_sang[key];
+			}
+		}
+		console.log(caracs);
 	}
 
 	perso.synchroWithView = function() {
