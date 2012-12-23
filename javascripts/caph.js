@@ -1,4 +1,18 @@
 jQuery(document).ready(function() {
+	var perso = {
+		sang : '',
+		tribu : '',
+		caracs : {
+			souffle : 0,
+			charme : 0,
+			coordination : 0,
+			puissance : 0,
+			sagesse : 0
+		},
+		competences : {
+
+		},
+	}
 	var arbo_sang = {
 		'saabi' : {
 			'libelle': "Clan",
@@ -129,18 +143,44 @@ jQuery(document).ready(function() {
 
 	$('#sang').change(function() {
 		var value = $(this).val();
+		$('#tribu').html('');
+		perso.sang = '';
 		if (arbo_sang[value] != undefined) {
+			perso.sang = value;
 			var data_sang = arbo_sang[value];
 			v.libelle_tribu.html(data_sang.libelle);
-			console.log(data_sang.valeurs.length);
-			console.log(data_sang.valeurs);
-			$('#tribu').html('');
 			for (var i = 0; i < data_sang.valeurs.length; i++) {
 				var o = $('<option></option>');
 				o.attr('value', data_sang.valeurs[i].cle);
 				o.text(data_sang.valeurs[i].libelle);
 				$('#tribu').append(o);
 			}
+			$('#tribu').change();
 		}
-	})
+	});
+	
+	$('#tribu').change(function() {
+		var value = $(this).val();
+		perso.tribu = value;
+		var sang_tribus = arbo_sang[perso.sang].valeurs;
+		for (var i = 0; i < sang_tribus.length; i++) {
+			var tribu = sang_tribus[i];
+			if (tribu.cle === value) {
+				var bonus = tribu.bonus;
+				for (var j = 0; j < bonus.length; j++) {
+					perso.applyBonus(bonus[j]);
+				}
+			}
+		}
+	});
+
+	perso.applyBonus = function(bonus_str) {
+		var kv = bonus_str.split('+');
+		var key = kv[0];
+		var val = intval(kv[1]);
+
+		alert('key val' + key + ' +' + val);
+	}
+
+	$('#sang').change();
 });
