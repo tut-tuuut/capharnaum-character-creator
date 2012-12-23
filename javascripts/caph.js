@@ -242,7 +242,6 @@ jQuery(document).ready(function() {
 				comps[key] = comps[key] + this.bonus_sang[key];
 			}
 		}
-		console.log(caracs);
 	}
 
 	perso.synchroWithView = function() {
