@@ -265,6 +265,7 @@ jQuery(document).ready(function() {
 					perso.applyBonus(bonus[j], 'bonus_sang');
 				}
 				perso.calculeTotaux();
+				perso.synchroWithView();
 				return;
 			}
 		}
@@ -300,6 +301,7 @@ jQuery(document).ready(function() {
 		this[bonus_key][key] = val;
 		if (async) {
 			perso.calculeTotaux();
+			perso.synchroWithView();
 		}
 	}
 
@@ -321,11 +323,20 @@ jQuery(document).ready(function() {
 				comps[key] = comps[key] + this.bonus_sang[key];
 			}
 		}
-		console.log(comps, caracs);
+		perso.comps = comps;
+		perso.caracs = caracs;
+		perso.vertus = vertus;
 	}
 
 	perso.synchroWithView = function() {
-
+		for (var i = 0; i < keys_caracs.length; i++) {
+			var key = keys_caracs[i];
+			$('#'+key).val(perso.caracs[key]);
+		}
+		for (i = 0; i < keys_comps.length; i++) {
+			var key = keys_comps[i];
+			$('#'+key).val(perso.comps[key]);
+		}
 	}
 
 	$('#sang').change();
