@@ -16,152 +16,322 @@
   <!-- Included CSS Files (Uncompressed) -->
   <!--
   <link rel="stylesheet" href="stylesheets/foundation.css">
-  -->
-  
-  <!-- Included CSS Files (Compressed) -->
-  <link rel="stylesheet" href="stylesheets/foundation.min.css">
-  <link rel="stylesheet" href="stylesheets/app.css">
+-->
 
-  <script src="javascripts/modernizr.foundation.js"></script>
+<!-- Included CSS Files (Compressed) -->
+<link rel="stylesheet" href="stylesheets/foundation.min.css">
+<link rel="stylesheet" href="stylesheets/app.css">
 
-  <!-- IE Fix for HTML5 Tags -->
+<script src="javascripts/modernizr.foundation.js"></script>
+
+<!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
+    <![endif]-->
 
 </head>
 <body>
 
-  <div class="row">
-    <div class="twelve columns">
-      <h2>Welcome to Foundation</h2>
-      <p>This is version <strong>3.2.2</strong> generated on November 10, 2012.</p>
-      <hr />
-    </div>
-  </div>
+    <h1 class="row">Capharnaüm - fiche de perso web interactive</h1>
+    <div class="row">
+     <fieldset>
+        <legend>Informations générales</legend>
 
-  <div class="row">
-    <div class="eight columns">
-      <h3>The Grid</h3>
+        <div class="row">
+            <div class="six columns">
+                <label for="general_1">Nom</label>
+                <input type="text" id="general_1">
+            </div>
+            <div class="six columns">
+                <label for="sang">Sang</label>
+                <select name="sang" id="sang">
+                    <option value="">— Sélectionner —</option>
+                    <option value="saabi">Saabi</option>
+                    <option value="shiradi">Shiradi</option>
+                    <option value="escarte">Escarte</option>
+                    <option value="agalantheen">Agalanthéen</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="six columns">
+                <label for="general_4">Statut</label>
+                <input type="text" id="general_4">
+            </div>
+            <div class="six columns">
+                <label id="libelle_tribu" for="general_3">Tribu/Nation/Cité-état</label>
+                <select name="tribu" id="tribu">
+                    <option value="" selected="">— Choisir un sang… —</option>
+                </select>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="six columns">
+                <label for="general_5">Parole</label>
+                <input type="text" id="general_5">
+            </div>
+            <div class="six columns">
+                <label for="general_6">Occupation actuelle</label>
+                <input type="text" id="general_6">
+            </div>
+        </div>
+    </fieldset>
+</div>
 
-      <!-- Grid Example -->
-      <div class="row">
-        <div class="twelve columns">
-          <div class="panel">
-            <p>This is a twelve column section in a row. Each of these includes a div.panel element so you can see where the columns are - it's not required at all for the grid.</p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="six columns">
-          <div class="panel">
-            <p>Six columns</p>
-          </div>
-        </div>
-        <div class="six columns">
-          <div class="panel">
-            <p>Six columns</p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="four columns">
-          <div class="panel">
-            <p>Four columns</p>
-          </div>
-        </div>
-        <div class="four columns">
-          <div class="panel">
-            <p>Four columns</p>
-          </div>
-        </div>
-        <div class="four columns">
-          <div class="panel">
-            <p>Four columns</p>
-          </div>
-        </div>
-      </div>
-      
-      
-      <h3>Tabs</h3>
-      <dl class="tabs">
-        <dd class="active"><a href="#simple1">Simple Tab 1</a></dd>
-        <dd><a href="#simple2">Simple Tab 2</a></dd>
-        <dd><a href="#simple3">Simple Tab 3</a></dd>
-      </dl>
+<div class="row">
+    <fieldset>
+        <legend>Caractéristiques</legend>
+        <div class="row">
+            <div class="six columns">
+                <label for="carac_1">Coordination</label>
+                <input type="number" min="1" max="5" id="carac_1">
+            </div>
 
-      <ul class="tabs-content">
-        <li class="active" id="simple1Tab">This is simple tab 1's content. Pretty neat, huh?</li>
-        <li id="simple2Tab">This is simple tab 2's content. Now you see it!</li>
-        <li id="simple3Tab">This is simple tab 3's content. It's, you know...okay.</li>
-      </ul>
-      
-      
-      
-      <h3>Buttons</h3>
-
-      <div class="row">
-        <div class="six columns">
-          <p><a href="#" class="small button">Small Button</a></p>
-          <p><a href="#" class="button">Medium Button</a></p>
-          <p><a href="#" class="large button">Large Button</a></p>
+            <div class="six columns">
+                <label for="carac_2">Puissance</label>
+                <input type="number" min="1" max="5" id="carac_2">
+            </div>
         </div>
-        <div class="six columns">
-          <p><a href="#" class="small alert button">Small Alert Button</a></p>
-          <p><a href="#" class="success button">Medium Success Button</a></p>
-          <p><a href="#" class="large secondary button">Large Secondary Button</a></p>
+        <div class="row">
+            <div class="six columns">
+                <label for="carac_3">Charme</label>
+                <input type="number" min="1" max="5" id="carac_3">
+            </div>
+            <div class="six columns">
+                <label for="carac_4">Sagesse</label>
+                <input type="number" min="1" max="5" id="carac_4">
+            </div>
         </div>
-      </div>
-      
-    </div>
+        <div class="row">
+            <div class="six columns">
+                <label for="carac_5">Souffle</label>
+                <input type="number" min="1" max="5" id="carac_5">
+            </div>
+            <div class="six columns row">
+                <div class="four columns">
+                    <label for="">Init. max</label>
+                    <input type="number" readonly="">
+                </div>
+                <div class="four columns">
+                    <label for="">Trempe</label>
+                    <input type="number" readonly="">
+                </div>
+                <div class="four columns">
+                    <label for="">PV</label>
+                    <input type="number" readonly="">
+                </div>
+            </div>
+        </div>
 
-    <div class="four columns">
-      <h4>Getting Started</h4>
-      <p>We're stoked you want to try Foundation! To get going, this file (index.html) includes some basic styles you can modify, play around with, or totally destroy to get going.</p>
+    </fieldset>
+</div>
 
-      <h4>Other Resources</h4>
-      <p>Once you've exhausted the fun in this document, you should check out:</p>
-      <ul class="disc">
-        <li><a href="http://foundation.zurb.com/docs">Foundation Documentation</a><br />Everything you need to know about using the framework.</li>
-        <li><a href="http://github.com/zurb/foundation">Foundation on Github</a><br />Latest code, issue reports, feature requests and more.</li>
-        <li><a href="http://twitter.com/foundationzurb">@foundationzurb</a><br />Ping us on Twitter if you have questions. If you build something with this we'd love to see it (and send you a totally boss sticker).</li>
-      </ul>
-    </div>
-  </div>
+<div class="row">
+    <fieldset>
+        <legend>Vertus héroïques</legend>
+        <div class="row">
+            <div class="four columns">
+                <label for="vertu_heroique_1">Foi</label>
+                <input type="number" id="vertu_heroique_1" min="1" max="4">
+            </div>
+            <div class="four columns">
+                <label for="vertu_heroique_2">Bravoure</label>
+                <input type="number" id="vertu_heroique_2" min="1" max="4">
+            </div>
+            <div class="four columns">
+                <label for="vertu_heroique_3">Fidélité</label>
+                <input type="number" id="vertu_heroique_3" min="1" max="4">
+            </div>
+        </div>
+        <div class="row">
+            <div class="five columns centered">
+                <label for="heroisme">Héroïsme</label>
+                <input type="number" readonly>
+            </div>
 
-  
-  <div class="row">
-    <div class="twelve columns">
-      <h3>Orbit</h3>
-      <div id="featured">
-        <img src="holder.js/1200x250/text:Slide_1" alt="slide image">
-        <img src="holder.js/1200x250/text:Slide_2" alt="slide image">
-        <img src="holder.js/1200x250/text:Slide_3" alt="slide image">
-      </div>
-    </div>
-  </div>
-  
-  
-  
-  <div class="row">
-    <div class="twelve columns">
-      <h3>Reveal</h3>
-      <p><a href="#" data-reveal-id="exampleModal" class="button">Example modal</a></p>
-    </div>
-  </div>
-  
-  <div id="exampleModal" class="reveal-modal">
-    <h2>This is a modal.</h2>
-    <p>
-      Reveal makes these very easy to summon and dismiss. The close button is simple an anchor with a unicode 
-      character icon and a class of <code>close-reveal-modal</code>. Clicking anywhere outside the modal will 
-      also dismiss it.
-    </p>
-    <a class="close-reveal-modal">×</a>
-  </div>
-  
-  
-  <!-- Included JS Files (Uncompressed) -->
+        </div>
+    </fieldset>
+</div>
+
+<div class="row">
+    <fieldset>
+        <legend>Compétences</legend>
+        <div class="row">
+            <div class="three columns">
+                <fieldset>
+                    <legend>L'Aventurier</legend>
+                    <div>
+                        <label for="comp_epreuve">Épreuve</label>
+                        <input id="comp_epreuve" type="number" min="0" max="6" value="0">
+                    </div>
+                    <div>
+                        <label for="comp_equitation">Équitation</label>
+                        <input id="comp_equitation" type="number" min="0" max="6" value="0">
+                    </div>
+                    <div>
+                        <label for="comp_contes">Contes</label>
+                        <input id="comp_contes" type="number" min="0" max="6" value="0">
+                    </div>
+                    <div>
+                        <label for="comp_periples">Périples</label>
+                        <input id="comp_periples" type="number" min="0" max="6" value="0">
+                    </div>
+                </fieldset>
+            </div>
+            <div class="three columns">
+                <fieldset>
+                    <legend>Le Sage</legend>
+                    <div>
+                        <label for="comp_science">Science</label>
+                        <input id="comp_science" type="number" min="0" max="6" value="0">
+                    </div>
+                    <div>
+                        <label for="comp_enseigner">Enseigner</label>
+                        <input id="comp_enseigner" type="number" min="0" max="6" value="0">
+                    </div>
+                    <div>
+                        <label for="comp_ppl_histoire">Peuples et histoire</label>
+                        <input id="comp_ppl_histoire" type="number" min="0" max="6" value="0">
+                    </div>
+                    <div>
+                        <label for="comp_percevoir">Percevoir</label>
+                        <input id="comp_percevoir" type="number" min="0" max="6" value="0">
+                    </div>
+                </fieldset>
+            </div>
+            <div class="three columns">
+                <fieldset>
+                    <legend>Le Prince</legend>
+                    <div>
+                        <label for="comp_npplf">Ne pas perdre la face</label>
+                        <input id="comp_npplf" type="number" min="0" max="6" value="0">
+                    </div>
+                    <div>
+                        <label for="comp_elegance">Élégance</label>
+                        <input id="comp_elegance" type="number" min="0" max="6" value="0">
+                    </div>
+                    <div>
+                        <label for="comp_flatter">Flatter</label>
+                        <input id="comp_flatter" type="number" min="0" max="6" value="0">
+                    </div>
+                    <div>
+                        <label for="comp_negoce">Négoce</label>
+                        <input id="comp_negoce" type="number" min="0" max="6" value="0">
+                    </div>
+                </fieldset>
+            </div>
+            <div class="three columns">
+                <fieldset>
+                    <legend>Le Sorcier</legend>
+                    <div>
+                        <label for="comp_inspiration">Inspiration</label>
+                        <input id="comp_inspiration" type="number" min="0" max="6" value="0">
+                    </div>
+                    <div>
+                        <label for="comp_priere">Prière</label>
+                        <input id="comp_priere" type="number" min="0" max="6" value="0">
+                    </div>
+                    <div>
+                        <label for="comp_sacrifice">Sacrifice</label>
+                        <input id="comp_sacrifice" type="number" min="0" max="6" value="0">
+                    </div>
+                    <div>
+                        <label for="comp_verbe_sacre">Verbe sacré</label>
+                        <input id="comp_verbe_sacre" type="number" min="0" max="6" value="0">
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row">
+            <div class="three columns">
+                <fieldset>
+                    <legend>Le Guerrier</legend>
+                    <div>
+                        <label for="comp_arme">Arme</label>
+                        <input id="comp_arme" type="number" min="0" max="6" value="0">
+                    </div>
+                    <div>
+                        <label for="comp_commander">Commander</label>
+                        <input id="comp_commander" type="number" min="0" max="6" value="0">
+                    </div>
+                    <div>
+                        <label for="comp_entrainer">Entraîner</label>
+                        <input id="comp_entrainer" type="number" min="0" max="6" value="0">
+                    </div>
+                    <div>
+                        <label for="comp_impressionner">Impressionner</label>
+                        <input id="comp_impressionner" type="number" min="0" max="6" value="0">
+                    </div>
+                </fieldset>
+            </div>
+            <div class="three columns">
+                <fieldset>
+                    <legend>Le Poète</legend>
+                    <div>
+                        <label for="comp_galvaniser">Galvaniser</label>
+                        <input id="comp_galvaniser" type="number" min="0" max="6" value="0">
+                    </div>
+                    <div>
+                        <label for="comp_comedie">Comédie</label>
+                        <input id="comp_comedie" type="number" min="0" max="6" value="0">
+                    </div>
+                    <div>
+                        <label for="comp_poesie">Poésie</label>
+                        <input id="comp_poesie" type="number" min="0" max="6" value="0">
+                    </div>
+                    <div>
+                        <label for="comp_musique">Musique</label>
+                        <input id="comp_musique" type="number" min="0" max="6" value="0">
+                    </div>
+                </fieldset>
+            </div>
+            <div class="three columns">
+                <fieldset>
+                    <legend>Le Malandrin</legend>
+                    <div>
+                        <label for="comp_assassinat">Assassinat</label>
+                        <input id="comp_assassinat" type="number" min="0" max="6" value="0">
+                    </div>
+                    <div>
+                        <label for="comp_detrousser">Détrousser</label>
+                        <input id="comp_detrousser" type="number" min="0" max="6" value="0">
+                    </div>
+                    <div>
+                        <label for="comp_discretion">Discrétion</label>
+                        <input id="comp_discretion" type="number" min="0" max="6" value="0">
+                    </div>
+                    <div>
+                        <label for="comp_s_introduire">S'introduire</label>
+                        <input id="comp_s_introduire" type="number" min="0" max="6" value="0">
+                    </div>
+                </fieldset>
+            </div>
+            <div class="three columns">
+                <fieldset>
+                    <legend>Le Travailleur</legend>
+                    <div>
+                        <label for="comp_agriculture">Agriculture</label>
+                        <input id="comp_agriculture" type="number" min="0" max="6" value="0">
+                    </div>
+                    <div>
+                        <label for="comp_artisanat">Artisanat</label>
+                        <input id="comp_artisanat" type="number" min="0" max="6" value="0">
+                    </div>
+                    <div>
+                        <label for="comp_compagnonnage">Compagnonnage</label>
+                        <input id="comp_compagnonnage" type="number" min="0" max="6" value="0">
+                    </div>
+                    <div>
+                        <label for="comp_tenir_le_coup">Tenir le coup</label>
+                        <input id="comp_tenir_le_coup" type="number" min="0" max="6" value="0">
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </fieldset>
+</div>
+<!-- Included JS Files (Uncompressed) -->
   <!--
   
   <script src="javascripts/jquery.js"></script>
@@ -196,21 +366,21 @@
   
   <script src="javascripts/jquery.foundation.magellan.js"></script>
   
-  -->
-  
-  <!-- Included JS Files (Compressed) -->
-  <script src="javascripts/jquery.js"></script>
-  <script src="javascripts/foundation.min.js"></script>
-  
-  <!-- Initialize JS Plugins -->
-  <script src="javascripts/app.js"></script>
+-->
 
-  
-    <script>
-    $(window).load(function(){
-      $("#featured").orbit();
-    });
-    </script> 
-  
+<!-- Included JS Files (Compressed) -->
+<script src="javascripts/jquery.js"></script>
+<script src="javascripts/foundation.min.js"></script>
+<script src="javascripts/caph.js"></script>
+<!-- Initialize JS Plugins -->
+<script src="javascripts/app.js"></script>
+
+
+<script>
+$(window).load(function(){
+  $("#featured").orbit();
+});
+</script> 
+
 </body>
 </html>
