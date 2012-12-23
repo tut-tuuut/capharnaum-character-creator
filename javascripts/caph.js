@@ -2,14 +2,10 @@ jQuery(document).ready(function() {
 	var perso = {
 		sang : '',
 		tribu : '',
-		caracs : {
-			souffle : 0,
-			charme : 0,
-			coordination : 0,
-			puissance : 0,
-			sagesse : 0
+		bonus_sang : {
+			
 		},
-		competences : {
+		bonus_parole : {
 
 		},
 	}
@@ -136,6 +132,17 @@ jQuery(document).ready(function() {
 		}
 	};
 
+	// caracs
+	var keys_caracs = ['coordination', 'charme', 'puissance', 'souffle', 'sagesse'];
+	var keys_comps = [
+		'epreuve', 'equitation','contes','periples',
+		'science','enseigner','ppl_histoire', 'percevoir',
+		'npplf', 'elegance', 'flatter', 'negoce',
+		'inspiration', 'priere', 'sacrifice', 'verbe_sacre',
+		
+		];
+	var keys_vertus = ['bravoure', 'foi', 'fidelite'];
+
 	// views
 	var v = {
 		'libelle_tribu': $('#libelle_tribu')
@@ -168,19 +175,39 @@ jQuery(document).ready(function() {
 			if (tribu.cle === value) {
 				var bonus = tribu.bonus;
 				for (var j = 0; j < bonus.length; j++) {
-					perso.applyBonus(bonus[j]);
+					perso.applyBonus(bonus[j], 'bonus_sang');
 				}
+				perso.calculeTotaux();
+				return;
 			}
 		}
 	});
 
-	perso.applyBonus = function(bonus_str) {
+	perso.applyBonus = function(bonus_str, bonus_key) {
 		var kv = bonus_str.split('+');
 		var key = kv[0];
-		var val = intval(kv[1]);
+		var val = parseInt(kv[1]);
+		this[bonus_key][key] = val;
+	}
 
-		alert('key val' + key + ' +' + val);
+	perso.calculeTotaux = function() {
+		var comps = {};
+		var caracs = {};
+		var vertus = {};
+		for (var i = 0; i < keys_caracs.length; i++) {
+			var key = keys_caracs[i];
+			caracs[key] = 0;
+			if (this.bonus_sang[key] != undefined) {
+				caracs[key] = caracs[key] + this.bonus_sang[key];
+			}
+		}
+	}
+
+	perso.synchroWithView = function() {
+
 	}
 
 	$('#sang').change();
+
+	window.perso = perso;
 });
