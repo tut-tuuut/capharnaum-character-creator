@@ -26,13 +26,16 @@ jQuery(document).ready(function() {
 			]
 		},
 		'shiradi' : {
-			'libelle': 'Tribu'
+			'libelle': 'Tribu',
+			'valeurs' : []
 		},
 		'agalantheen' : {
-			'libelle': 'Cité-état'
+			'libelle': 'Cité-état',
+			'valeurs' : []
 		},
 		'escarte' : {
-			'libelle' : 'Nation'
+			'libelle' : 'Nation',
+			'valeurs' : []
 		}
 	};
 
@@ -45,8 +48,16 @@ jQuery(document).ready(function() {
 		var value = $(this).val();
 		if (arbo_sang[value] != undefined) {
 			var data_sang = arbo_sang[value];
-			console.log(data_sang);
 			v.libelle_tribu.html(data_sang.libelle);
+			console.log(data_sang.valeurs.length);
+			console.log(data_sang.valeurs);
+			$('#tribu').html('');
+			for (var i = 0; i < data_sang.valeurs.length; i++) {
+				var o = $('<option></option>');
+				o.attr('value', data_sang.valeurs[i].cle);
+				o.text(data_sang.valeurs[i].libelle);
+				$('#tribu').append(o);
+			}
 		}
 	})
 });
