@@ -211,6 +211,45 @@ jQuery(document).ready(function() {
 		}
 	};
 
+	var arbo_parole = [
+		{
+			cle: 'cimeterres_feu',
+			libelle: 'Le Sentier de cimeterres de feu',
+			sang: 'saabi',
+			tribu: 'malik',
+			bonus : [
+				'coordination+1',
+				'arme+1',
+				'epreuve+1',
+				'verbe_sacre+1'
+			]
+		},
+		{
+			cle: 'alchimie_hommes',
+			libelle: "L'alchimie des hommes",
+			sang: 'saabi',
+			tribu: 'mussah',
+			bonus : [
+				'sagesse+1',
+				'inspiration+1',
+				'sciences+1',
+				'verbe_sacre+1'
+			]
+		},
+		{
+			cle: 'soupcon_traitres',
+			libelle: 'Le soupçon des traîtres',
+			sang: 'saabi',
+			tribu: 'rachid',
+			bonus : [
+				'sagesse+1',
+				'arme+1',
+				'epreuve+1',
+				'verbe_sacre+1'
+			]
+		}
+	];
+
 	// caracs
 	var keys_caracs = ['coordination', 'charme', 'puissance', 'souffle', 'sagesse'];
 	var keys_comps = [
@@ -234,6 +273,7 @@ jQuery(document).ready(function() {
 		'libelle_tribu': $('#libelle_tribu')
 	}
 
+	// choix du sang en 2 temps : le sang puis le clan
 	$('#sang').change(function() {
 		var value = $(this).val();
 		$('#tribu').html('');
@@ -270,6 +310,16 @@ jQuery(document).ready(function() {
 			}
 		}
 	});
+
+	// remplissage du select des paroles
+	(function() {
+		var i = 0;
+		var elements = [];
+		for (i = 0; i < arbo_parole.length; i++) {
+			elements.push($('<option value="'+i+'">'+arbo_parole[i].libelle+'</option>'));
+		}
+		$('#parole').html('').append(elements);
+	}());
 
 	perso.applyBonus = function(bonus_str, bonus_key, async) {
 		var kv = bonus_str.split('+');
