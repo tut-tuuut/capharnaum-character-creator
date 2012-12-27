@@ -432,6 +432,7 @@ jQuery(document).ready(function() {
 			perso.sang = value;
 			var data_sang = arbo_sang[value];
 			var tribus = [];
+			tribus.push($('<option value="">– Sélectionner…</option>'));
 			v.libelle_tribu.html(data_sang.libelle);
 			for (var i = 0; i < data_sang.valeurs.length; i++) {
 				var o = $('<option></option>');
@@ -466,6 +467,7 @@ jQuery(document).ready(function() {
 	(function() {
 		var i = 0;
 		var elements = [];
+		elements.push($('<option value="">– Sélectionner…</option>'));
 		for (i = 0; i < arbo_parole.length; i++) {
 			elements.push($('<option value="'+i+'">'+arbo_parole[i].libelle+'</option>'));
 		}
