@@ -5,21 +5,11 @@ jQuery(document).ready(function() {
 		bonus_sang : {
 		},
 		bonus_parole : {
-		}
+		},
+		bonus_figure : {
+		},
 	}
-	var comps_par_defaut = {
-			negoce: 1,
-			inspiration: 1,
-			priere: 1,
-			tenir_le_coup: 1
-		};
-	var caracs_par_defaut = {
-			coordination: 1,
-			charme: 1,
-			puissance: 1,
-			souffle: 1,
-			sagesse: 1
-		};
+	
 	var arbo_sang = {
 		'saabi' : {
 			'libelle': "Clan",
@@ -531,7 +521,34 @@ jQuery(document).ready(function() {
 	}();
 	$('#vertus_heroiques').on('change', 'input[type=number]', controle_compte_vertus);
 
+	// Gestion des figures
 	$('#figures').sortable();
+	var getBonusFromI = function(i) {
+		if (i === 0) {
+			return 3;
+		}
+		if (i === 1) {
+			return 2;
+		}
+		if (i <= 4) {
+			return 1;
+		}
+		return 0;
+	}
+	$('#figures').on('sortupdate', function() {
+		var ids = $('#figures').sortable('toArray');
+		perso.bonus_figure = {};
+		for (var i = 0; i < ids.length; i++) {
+			var fig_key = parseInt(ids[i].split('_')[1]);
+			for (var j = 4*fig_key; j <= 4*fig_key+3; j++) {
+				var bonus_str = keys_comps[j]+'+'+getBonusFromI(i);
+				perso.applyBonus(bonus_str, 'bonus_figure');
+			}
+		}
+		perso.calculeTotaux();
+		perso.synchroWithView();
+	});
+
 	// Calcule les PV, l'init max, la trempe et la défense passive
 	var calculeLesTrucs = function() {
 		var souffle = parseInt($('#souffle').val()) | 0;
@@ -592,10 +609,21 @@ jQuery(document).ready(function() {
 
 	perso.calculeTotaux = function() {
 		// Points assignés d'office au début de l'étape 4
-		var comps = comps_par_defaut;
+		var comps = {
+			negoce: 1,
+			inspiration: 1,
+			priere: 1,
+			tenir_le_coup: 1
+		};
 		// Points assignés d'office au début de l'étape 3
-		var caracs = caracs_par_defaut;
-		var bonus_keys = ['bonus_sang', 'bonus_parole'];
+		var caracs = {
+			coordination: 1,
+			charme: 1,
+			puissance: 1,
+			souffle: 1,
+			sagesse: 1
+		};
+		var bonus_keys = ['bonus_sang', 'bonus_parole', 'bonus_figure'];
 		var bonus_type = '';
 		for (var j = 0; j < bonus_keys.length; j++) {
 			bonus_type = bonus_keys[j];
