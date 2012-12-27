@@ -399,6 +399,42 @@ jQuery(document).ready(function() {
 		'flatter+1',
 		'sacrifice+1'
 		]
+	},
+	{
+		cle: 'duellistes',
+		libelle: 'Les Duellistes de San Llorente de Valladòn',
+		sang: 'escarte',
+		tribu: 'aragon',
+		bonus : [
+		'coordination+1',
+		'arme+1',
+		'equitation+1',
+		'agriculture+1'
+		]
+	},
+	{
+		cle: 'gerta_dragon',
+		libelle: 'Sainte Gerta qui pourfendit le dragon',
+		sang: 'escarte',
+		tribu: 'dorkadie',
+		bonus : [
+		'puissance+1',
+		'arme+1',
+		'entrainer+1',
+		'impressionner+1'
+		]
+	},
+	{
+		cle: 'temple_sagrada',
+		libelle: 'Ordre du Temple de Sagrada',
+		sang: 'escarte',
+		tribu: 'occidentine',
+		bonus : [
+		'coordination+1',
+		'armes+1',
+		'priere+1',
+		'verbe_sacre+1'
+		]
 	}
 
 	];
@@ -472,7 +508,10 @@ jQuery(document).ready(function() {
 		var elements = [];
 		elements.push($('<option value="">– Sélectionner…</option>'));
 		for (i = 0; i < arbo_parole.length; i++) {
-			elements.push($('<option value="'+i+'">'+arbo_parole[i].libelle+'</option>'));
+			elements.push($('<option value="'+i+'">'+
+				arbo_parole[i].libelle+
+				' ('+arbo_parole[i].sang+' / '+arbo_parole[i].tribu+')'+
+				'</option>'));
 		}
 		$('#parole').html('').append(elements);
 	}());
