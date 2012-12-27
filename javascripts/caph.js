@@ -245,7 +245,125 @@ jQuery(document).ready(function() {
 		'epreuve+1',
 		'verbe_sacre+1'
 		]
+	},
+	{
+		cle: 'dunes_safran',
+		libelle: 'Les dunes de Safran',
+		sang: 'saabi',
+		tribu: 'yucef',
+		bonus : [
+		'sagesse+1',
+		'flatter+1',
+		'negoce+1',
+		'verbe_sacre+1'
+		]
+	},
+	{
+		cle: 'enfants_souk',
+		libelle: 'Les enfants du souk',
+		sang: 'saabi',
+		tribu: 'aziz',
+		bonus : [
+		'charme+1',
+		'detrousser+1',
+		'discretion+1',
+		's_introduire+1'
+		]
+	},
+	{
+		cle: 'walad_badiya',
+		libelle: 'Les Walad Badiya',
+		sang: 'saabi',
+		tribu: 'khalil',
+		bonus : [
+		'coordination+1',
+		'arme+1',
+		'equitation+1',
+		'contes+1'
+		]
+	},
+	{
+		cle: 'marcheurs_sang',
+		libelle: 'Les Marcheurs aux semelles de sang',
+		sang: 'saabi',
+		tribu: 'tufiq',
+		bonus : [
+		'puissance+1',
+		'arme+1',
+		'impressionner+1',
+		'priere+1'
+		]
+	},
+	{
+		cle: 'vierges_papier',
+		libelle: 'Les filles aimées d’Agushaya',
+		sang: 'saabi',
+		tribu: 'mimoun',
+		bonus : [
+		'charme+1',
+		'detrousser+1',
+		'flatter+1',
+		'comedie|poesie|musique+1'
+		]
+	},
+	{
+		cle: 'prieurs_sables',
+		libelle: 'Les prieurs des sables',
+		sang: 'saabi',
+		tribu: 'mammud',
+		bonus : [
+		'sagesse+1',
+		'epreuve+1',
+		'periple+1',
+		'priere+1'
+		]
+	},
+	{
+		cle: 'lions_rouges',
+		libelle: 'Les Lions Rouges de Shirad',
+		sang: 'shiradi',
+		tribu: 'ashkenim',
+		bonus : [
+		'coordination+1',
+		'arme+1',
+		'entrainer+1',
+		'priere+1'
+		]
+	},
+	{
+		cle: 'voix_celeste',
+		libelle: 'La Voix céleste de Shirad',
+		sang: 'shiradi',
+		tribu: 'pharatim',
+		bonus : [
+		'charme+1',
+		'enseigner+1',
+		'verbe_sacre+1',
+		'science|ppl_histoire+1'
+		]
+	},
+	{
+		cle: 'coeur_sacre_shirad',
+		libelle: 'Le cœur sacré de Shirad',
+		sang: 'shiradi',
+		tribu: 'salonim',
+		bonus : [
+		'sagesse+1',
+		'science+3'
+		]
+	},
+	{
+		cle: 'lune_de_sang',
+		libelle: 'Les assassins de la Lune de Sang',
+		sang: 'shiradi',
+		tribu: 'salonim',
+		bonus : [
+		'sagesse+1',
+		'science+2',
+		'discretion+1'
+		]
 	}
+
 	];
 
 	// caracs
