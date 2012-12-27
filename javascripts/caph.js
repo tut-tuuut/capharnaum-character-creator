@@ -7,6 +7,19 @@ jQuery(document).ready(function() {
 		bonus_parole : {
 		}
 	}
+	var comps_par_defaut = {
+			negoce: 1,
+			inspiration: 1,
+			priere: 1,
+			tenir_le_coup: 1
+		};
+	var caracs_par_defaut = {
+			coordination: 1,
+			charme: 1,
+			puissance: 1,
+			souffle: 1,
+			sagesse: 1
+		};
 	var arbo_sang = {
 		'saabi' : {
 			'libelle': "Clan",
@@ -578,9 +591,10 @@ jQuery(document).ready(function() {
 	}
 
 	perso.calculeTotaux = function() {
-		var comps = {};
-		var caracs = {};
-		var vertus = {};
+		// Points assignés d'office au début de l'étape 4
+		var comps = comps_par_defaut;
+		// Points assignés d'office au début de l'étape 3
+		var caracs = caracs_par_defaut;
 		var bonus_keys = ['bonus_sang', 'bonus_parole'];
 		var bonus_type = '';
 		for (var j = 0; j < bonus_keys.length; j++) {
@@ -602,7 +616,6 @@ jQuery(document).ready(function() {
 		}
 		perso.comps = comps;
 		perso.caracs = caracs;
-		perso.vertus = vertus;
 	}
 
 	perso.synchroWithView = function() {
@@ -617,6 +630,7 @@ jQuery(document).ready(function() {
 	}
 
 	$('#sang').change();
-
+	perso.calculeTotaux();
+	perso.synchroWithView();
 	window.perso = perso;
 });
