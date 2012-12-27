@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>Capharnaüm – fiche de perso interactive</title>
+  
+  <!-- Included CSS Files (Uncompressed) -->
+  <!--
+  <link rel="stylesheet" href="stylesheets/foundation.css">
+-->
+
+<!-- Included CSS Files (Compressed) -->
+<link rel="stylesheet" href="stylesheets/foundation.min.css">
+<link rel="stylesheet" href="stylesheets/app.css">
+
+<script src="javascripts/modernizr.foundation.js"></script>
+
+<!-- IE Fix for HTML5 Tags -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+    <h1 class="row">Capharnaüm - fiche de perso web interactive</h1>
+    <div class="row">
+        <fieldset>
+            <legend>Étapes de la création</legend>
+
+            <div class="row">
+                <div class="six columns">
+                    <fieldset>
+                        <legend>1. Le Sang et la Parole</legend>
+                        <p>
+                            <label for="sang">Sang</label>
+                            <select name="sang" id="sang">
+                                <option value="">— Sélectionner —</option>
+                                <option value="saabi">Saabi</option>
+                                <option value="shiradi">Shiradi</option>
+                                <option value="escarte">Escarte</option>
+                                <option value="agalantheen">Agalanthéen</option>
+                            </select>
+                        </p>
+                        <p>
+                            <label id="libelle_tribu" for="general_3">Tribu/Nation/Cité-état</label>
+                            <select name="tribu" id="tribu">
+                                <option value="" selected="">— Choisir un sang… —</option>
+                            </select>
+                        </p>
+                        <p>
+                            <label for="general_5">Parole</label>
+                            <select name="parole" id="parole">
+                                <option value="">---</option>
+                            </select>
+                        </p>
+                    </fieldset>
+                </div>
+                <div class="six columns">
+                    <fieldset>
+                        <legend>2. Vertus Héroïques</legend>
+                        <p>Répartir 10 points entre Bravoure, Fidélité et Foi. Minimum 1, maximum 6.</p>
+                    </fieldset>
+                    <fieldset>
+                        <legend>3. Caractéristiques</legend>
+                        <p>
+                            Attribuer 1 point à chaque caractéristique. Répartir 6 points entre toutes les caractéristiques en additionnant avec les éventuels bonus acquis à l'étape 1, sans dépasser un score de 4.
+                        </p>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="row">
+                <div class="six columns">
+                    <fieldset>
+                        <legend>4. Figures et compétences</legend>
+                        <ol>
+                            <li>Noter 1 point dans les compétences Négoce et Salamalecs, Inspiration, Prière et Tenir le coup.</li>
+                            <li>Classer les figures par ordre décroissant de correspondance avec le personnage, puis leur attribuer les scores suivants : 3, 2, 1, 1, 1, 0, 0, 0.</li>
+                            <li>Ajouter aux compétences le score de la figure dont elles dépendent, sans oublier les acquis de l'étape 1. (Maximum 5.)</li>
+                        </ol>
+                        <p>Note : Il est impossible de dépasser le score de 5 dans une compétence lors de la création de personnage. Si le cas se produit, le joueur doit mettre ses points de côté pour les ajouter aux points de répartition libre à l'étape 5.</p>
+                    </fieldset>
+                </div>
+                <div class="six columns">
+                    <fieldset>
+                        <legend>5. Finitions</legend>
+                        <ol>
+                            <li>Répartir librement 5 points de compétence. (Pas plus de 2 points dans une même compétence, et interdiction de dépasser un niveau de 5.)</li>
+                            <li>Tirer 2 fois sur la table de Sang.</li>
+                            <li>Tirer une fois sur la table de la figure principale.</li>
+                            <li>Tirer deux fois sur la table des figures.</li>
+                            <li>Tirer une fois sur la table d'héritage des dragons.</li>
+                            <li>Déterminer son équipement et son niveau de richesse.</li>
+                        </ol>
+                    </fieldset>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="row">
+        <fieldset id="caracteristiques">
+            <legend>Caractéristiques</legend>
+            <div class="row">
+                <div class="six columns">
+                    <label for="coordination">Coordination</label>
+                    <input type="number" min="1" max="5" id="coordination">
+                </div>
+
+                <div class="six columns">
+                    <label for="puissance">Puissance</label>
+                    <input type="number" min="1" max="5" id="puissance">
+                </div>
+            </div>
+            <div class="row">
+                <div class="six columns">
+                    <label for="charme">Charme</label>
+                    <input type="number" min="1" max="5" id="charme">
+                </div>
+                <div class="six columns">
+                    <label for="sagesse">Sagesse</label>
+                    <input type="number" min="1" max="5" id="sagesse">
+                </div>
+            </div>
+            <div class="row">
+                <div class="six columns">
+                    <label for="souffle">Souffle</label>
+                    <input type="number" min="1" max="5" id="souffle">
+                </div>
+                <div class="six columns row">
+                    <div class="three columns">
+                        <label for="init_max">Init. max</label>
+                        <input type="number" readonly id="init_max">
+                    </div>
+                    <div class="three columns">
+                        <label for="trempe">Trempe</label>
+                        <input type="number" readonly id="trempe">
+                    </div>
+                    <div class="three columns">
+                        <label for="pv">PV</label>
+                        <input type="number" readonly id="pv">
+                    </div>
+                    <div class="three columns">
+                        <label for="defense_passive">Déf. passive</label>
+                        <input type="number" readonly id="defense_passive">
+                    </div>
+                </div>
+            </div>
+
+        </fieldset>
+    </div>
+
+    <div class="row">
+        <fieldset id="vertus_heroiques">
+            <legend>Vertus héroïques</legend>
+            <div class="row">
+                <div class="four columns">
+                    <label for="foi">Foi</label>
+                    <input type="number" id="foi" min="1" max="6" value="0">
+                </div>
+                <div class="four columns">
+                    <label for="bravoure">Bravoure</label>
+                    <input type="number" id="bravoure" min="1" max="6" value="0">
+                </div>
+                <div class="four columns">
+                    <label for="fidelite">Fidélité</label>
+                    <input type="number" id="fidelite" min="1" max="6" value="0">
+                </div>
+            </div>
+            <div class="row">
+                <div class="five columns">
+                    <label for="heroisme">Héroïsme</label>
+                    <input type="number" readonly id="heroisme">
+                </div>
+                <div class="five columns">
+                    <label>Reste à répartir : <strong id="vertus_points">10</strong></label>
+                </div>
+
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="row">
+        <fieldset>
+            <legend>Compétences</legend>
+            <div class="row">
+                <div class="three columns">
+                    <fieldset>
+                        <legend>L'Aventurier</legend>
+                        <div>
+                            <label for="epreuve">Épreuve</label>
+                            <input id="epreuve" type="number" min="0" max="6" value="0">
+                        </div>
+                        <div>
+                            <label for="equitation">Équitation</label>
+                            <input id="equitation" type="number" min="0" max="6" value="0">
+                        </div>
+                        <div>
+                            <label for="contes">Contes</label>
+                            <input id="contes" type="number" min="0" max="6" value="0">
+                        </div>
+                        <div>
+                            <label for="periple">Périples</label>
+                            <input id="periple" type="number" min="0" max="6" value="0">
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="three columns">
+                    <fieldset>
+                        <legend>Le Sage</legend>
+                        <div>
+                            <label for="science">Science</label>
+                            <input id="science" type="number" min="0" max="6" value="0">
+                        </div>
+                        <div>
+                            <label for="enseigner">Enseigner</label>
+                            <input id="enseigner" type="number" min="0" max="6" value="0">
+                        </div>
+                        <div>
+                            <label for="ppl_histoire">Peuples et histoire</label>
+                            <input id="ppl_histoire" type="number" min="0" max="6" value="0">
+                        </div>
+                        <div>
+                            <label for="percevoir">Percevoir</label>
+                            <input id="percevoir" type="number" min="0" max="6" value="0">
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="three columns">
+                    <fieldset>
+                        <legend>Le Prince</legend>
+                        <div>
+                            <label for="npplf">Ne pas perdre la face</label>
+                            <input id="npplf" type="number" min="0" max="6" value="0">
+                        </div>
+                        <div>
+                            <label for="elegance">Élégance</label>
+                            <input id="elegance" type="number" min="0" max="6" value="0">
+                        </div>
+                        <div>
+                            <label for="flatter">Flatter</label>
+                            <input id="flatter" type="number" min="0" max="6" value="0">
+                        </div>
+                        <div>
+                            <label for="negoce">Négoce</label>
+                            <input id="negoce" type="number" min="0" max="6" value="0">
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="three columns">
+                    <fieldset>
+                        <legend>Le Sorcier</legend>
+                        <div>
+                            <label for="inspiration">Inspiration</label>
+                            <input id="inspiration" type="number" min="0" max="6" value="0">
+                        </div>
+                        <div>
+                            <label for="priere">Prière</label>
+                            <input id="priere" type="number" min="0" max="6" value="0">
+                        </div>
+                        <div>
+                            <label for="sacrifice">Sacrifice</label>
+                            <input id="sacrifice" type="number" min="0" max="6" value="0">
+                        </div>
+                        <div>
+                            <label for="verbe_sacre">Verbe sacré</label>
+                            <input id="verbe_sacre" type="number" min="0" max="6" value="0">
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="row">
+                <div class="three columns">
+                    <fieldset>
+                        <legend>Le Guerrier</legend>
+                        <div>
+                            <label for="arme">Arme</label>
+                            <input id="arme" type="number" min="0" max="6" value="0">
+                        </div>
+                        <div>
+                            <label for="commander">Commander</label>
+                            <input id="commander" type="number" min="0" max="6" value="0">
+                        </div>
+                        <div>
+                            <label for="entrainer">Entraîner</label>
+                            <input id="entrainer" type="number" min="0" max="6" value="0">
+                        </div>
+                        <div>
+                            <label for="impressionner">Impressionner</label>
+                            <input id="impressionner" type="number" min="0" max="6" value="0">
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="three columns">
+                    <fieldset>
+                        <legend>Le Poète</legend>
+                        <div>
+                            <label for="galvaniser">Galvaniser</label>
+                            <input id="galvaniser" type="number" min="0" max="6" value="0">
+                        </div>
+                        <div>
+                            <label for="comedie">Comédie</label>
+                            <input id="comedie" type="number" min="0" max="6" value="0">
+                        </div>
+                        <div>
+                            <label for="poesie">Poésie</label>
+                            <input id="poesie" type="number" min="0" max="6" value="0">
+                        </div>
+                        <div>
+                            <label for="musique">Musique</label>
+                            <input id="musique" type="number" min="0" max="6" value="0">
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="three columns">
+                    <fieldset>
+                        <legend>Le Malandrin</legend>
+                        <div>
+                            <label for="assassinat">Assassinat</label>
+                            <input id="assassinat" type="number" min="0" max="6" value="0">
+                        </div>
+                        <div>
+                            <label for="detrousser">Détrousser</label>
+                            <input id="detrousser" type="number" min="0" max="6" value="0">
+                        </div>
+                        <div>
+                            <label for="discretion">Discrétion</label>
+                            <input id="discretion" type="number" min="0" max="6" value="0">
+                        </div>
+                        <div>
+                            <label for="s_introduire">S'introduire</label>
+                            <input id="s_introduire" type="number" min="0" max="6" value="0">
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="three columns">
+                    <fieldset>
+                        <legend>Le Travailleur</legend>
+                        <div>
+                            <label for="agriculture">Agriculture</label>
+                            <input id="agriculture" type="number" min="0" max="6" value="0">
+                        </div>
+                        <div>
+                            <label for="artisanat">Artisanat</label>
+                            <input id="artisanat" type="number" min="0" max="6" value="0">
+                        </div>
+                        <div>
+                            <label for="compagnonnage">Compagnonnage</label>
+                            <input id="compagnonnage" type="number" min="0" max="6" value="0">
+                        </div>
+                        <div>
+                            <label for="tenir_le_coup">Tenir le coup</label>
+                            <input id="tenir_le_coup" type="number" min="0" max="6" value="0">
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="reveal-modal" id="lapopin">
+        
+    </div>
+    <!-- Included JS Files (Uncompressed) -->
+  <!--
+  
+  <script src="javascripts/jquery.js"></script>
+  
+  <script src="javascripts/jquery.foundation.mediaQueryToggle.js"></script>
+  
+  <script src="javascripts/jquery.foundation.forms.js"></script>
+  
+  <script src="javascripts/jquery.foundation.reveal.js"></script>
+  
+  <script src="javascripts/jquery.foundation.orbit.js"></script>
+  
+  <script src="javascripts/jquery.foundation.navigation.js"></script>
+  
+  <script src="javascripts/jquery.foundation.buttons.js"></script>
+  
+  <script src="javascripts/jquery.foundation.tabs.js"></script>
+  
+  <script src="javascripts/jquery.foundation.tooltips.js"></script>
+  
+  <script src="javascripts/jquery.foundation.accordion.js"></script>
+  
+  <script src="javascripts/jquery.placeholder.js"></script>
+  
+  <script src="javascripts/jquery.foundation.alerts.js"></script>
+  
+  <script src="javascripts/jquery.foundation.topbar.js"></script>
+  
+  <script src="javascripts/jquery.foundation.joyride.js"></script>
+  
+  <script src="javascripts/jquery.foundation.clearing.js"></script>
+  
+  <script src="javascripts/jquery.foundation.magellan.js"></script>
+  
+-->
+
+<!-- Included JS Files (Compressed) -->
+<script src="javascripts/jquery.js"></script>
+<script src="javascripts/foundation.min.js"></script>
+<script src="javascripts/caph.js"></script>
+<!-- Initialize JS Plugins -->
+<script src="javascripts/app.js"></script>
+
+
+<script>
+$(window).load(function(){
+  $("#featured").orbit();
+});
+</script> 
+
+</body>
+</html>
