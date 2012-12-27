@@ -487,6 +487,16 @@ jQuery(document).ready(function() {
 		perso.synchroWithView();
 	});
 
+	// calcul de l'héroïsme
+	$('#vertus_heroiques').on('change', 'input[type=number]', function() {
+		var sum = 0, heroisme = 0;
+		for (var i = 0; i < keys_vertus.length; i++) {
+			var vertu = parseInt($('#'+keys_vertus[i]).val());
+			sum += vertu;
+		}
+		heroisme = Math.floor(sum/keys_vertus.length);
+		$('#heroisme').val(heroisme);
+	});
 	perso.applyBonus = function(bonus_str, bonus_key, async) {
 		var kv = bonus_str.split('+');
 		var key = kv[0];
