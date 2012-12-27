@@ -500,6 +500,25 @@ jQuery(document).ready(function() {
 		$('#heroisme').val(heroisme);
 	});
 
+	var controle_compte_vertus = function() {
+		var vertus_inputs = [
+			$('#bravoure'),
+			$('#fidelite'),
+			$('#foi')
+		];
+		var vertus_compteur = $('#vertus_points');
+		var points_a_repartir = 10;
+		return function () {
+			sum = 0;
+			for (var i = 0; i < vertus_inputs.length; i++) {
+				sum += (vertus_inputs[i].val() | 0);
+			}
+			vertus_compteur.html(points_a_repartir - sum);
+		}
+	}();
+	
+	$('#vertus_heroiques').on('change', 'input[type=number]', controle_compte_vertus);
+
 	// Calcule les PV, l'init max, la trempe et la défense passive
 	var calculeLesTrucs = function() {
 		var souffle = parseInt($('#souffle').val()) | 0;
