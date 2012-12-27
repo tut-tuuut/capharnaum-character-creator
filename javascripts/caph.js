@@ -362,6 +362,40 @@ jQuery(document).ready(function() {
 		'science+2',
 		'discretion+1'
 		]
+	},
+	{
+		cle: 'myrmidons_theremeens',
+		libelle: 'L’Ordre des myrmidons théréméens',
+		sang: 'agalantheen',
+		tribu: 'thereme',
+		bonus : [
+		'coordination+1',
+		'entrainer+2',
+		'commander+1'
+		]
+	},
+	{
+		cle: 'auriges_fragrantins',
+		libelle: 'Les Auriges fragrantins',
+		sang: 'agalantheen',
+		tribu: 'fragrance',
+		bonus : [
+		'coordination+1',
+		'equitation+2',
+		'flatter+1'
+		]
+	},
+	{
+		cle: 'bacchorantes_etrusiens',
+		libelle: 'Les Bacchorantes étrusiens',
+		sang: 'agalantheen',
+		tribu: 'etrusie',
+		bonus : [
+		'souffle+1',
+		'agriculture+1',
+		'flatter+1',
+		'sacrifice+1'
+		]
 	}
 
 	];
