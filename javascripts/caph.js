@@ -499,6 +499,31 @@ jQuery(document).ready(function() {
 		heroisme = Math.floor(sum/keys_vertus.length);
 		$('#heroisme').val(heroisme);
 	});
+
+	// Calcule les PV, l'init max, la trempe et la défense passive
+	var calculeLesTrucs = function() {
+		var souffle = parseInt($('#souffle').val()) | 0;
+		var coordination = parseInt($('#coordination').val()) | 0;
+		var epreuve = parseInt($('#epreuve').val()) | 0;
+		var sagesse = parseInt($('#sagesse').val()) | 0;
+		var heroisme = parseInt($('#heroisme').val()) | 0;
+
+		var pv = 10 * souffle;
+		$('#pv').val(pv);
+
+		var initmax = 1 + Math.floor((coordination + souffle + sagesse)/3);
+		$('#init_max').val(initmax);
+
+		var trempe = souffle + heroisme;
+		$('#trempe').val(trempe);
+
+		var defense_passive = coordination + epreuve + 6;
+		$('#defense_passive').val(defense_passive);
+	}
+
+	// calcul des statistiques
+	$('#caracteristiques').on('change', 'input[type=number]', calculeLesTrucs);
+
 	perso.applyBonus = function(bonus_str, bonus_key, async) {
 		var kv = bonus_str.split('+');
 		var key = kv[0];
