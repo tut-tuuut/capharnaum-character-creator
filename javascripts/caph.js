@@ -3,11 +3,9 @@ jQuery(document).ready(function() {
 		sang : '',
 		tribu : '',
 		bonus_sang : {
-			
 		},
 		bonus_parole : {
-
-		},
+		}
 	}
 	var arbo_sang = {
 		'saabi' : {
@@ -17,90 +15,90 @@ jQuery(document).ready(function() {
 				'cle': 'malik',
 				'libelle': 'Ibn Malik Abd-al-Hassan',
 				'bonus': [
-					'coordination|puissance+1',
-					'arme+1',
-					'commander+1',
-					'entrainer+1'
+				'coordination|puissance+1',
+				'arme+1',
+				'commander+1',
+				'entrainer+1'
 				]
 			},
 			{
 				'cle': 'mussah',
 				'libelle': 'Ibn Mussah Abd-al-Hassan',
 				'bonus': [
-					'charme+1',
-					'npplf+1',
-					'elegance+1',
-					'flatter+1'
+				'charme+1',
+				'npplf+1',
+				'elegance+1',
+				'flatter+1'
 				]
 			},
 			{
 				'cle': 'rachid',
 				'libelle': 'Ibn Rachid Abd-al-Hassan',
 				'bonus': [
-					'souffle+1',
-					'arme+1',
-					'assassinat+1',
-					'poesie+1'
+				'souffle+1',
+				'arme+1',
+				'assassinat+1',
+				'poesie+1'
 				]
 			},
 			{
 				'cle' : 'yucef',
 				'libelle': 'Ibn Yucef Abd-al-Salif',
 				'bonus': [
-					'sagesse|charme+1',
-					'flatter+1',
-					'negoce+1',
-					'periple+1'
+				'sagesse|charme+1',
+				'flatter+1',
+				'negoce+1',
+				'periple+1'
 				]
 			},
 			{
 				'cle' : 'aziz',
 				'libelle': 'Ibn Aziz Abd-al-Salif',
 				'bonus': [
-					'coordination+1',
-					'arme+1',
-					'detrousser+1',
-					'negoce+1',
+				'coordination+1',
+				'arme+1',
+				'detrousser+1',
+				'negoce+1',
 				]
 			},
 			{
 				'cle' : 'khalil',
 				'libelle': 'Ibn Khalil Abd-al-Salif',
 				'bonus': [
-					'souffle+1',
-					'agriculture+1',
-					'equitation+1',
-					'periple+1'
+				'souffle+1',
+				'agriculture+1',
+				'equitation+1',
+				'periple+1'
 				]
 			},
 			{
 				'cle' : 'tufiq',
 				'libelle' : 'Ibn Tufiq Abd-al-Tarek',
 				'bonus' : [
-					'puissance+1',
-					'arme+1',
-					'entrainer+1',
-					'priere+1'
+				'puissance+1',
+				'arme+1',
+				'entrainer+1',
+				'priere+1'
 				]
 			},
 			{
 				'cle' : 'mimoun',
 				'libelle' : 'Ibn Mimoun Abd-al-Tarek',
 				'bonus' : [
-					'charme+1',
-					'assassinat|verbe_sacre+1',
-					'discretion+1',
-					'flatter+1'
+				'charme+1',
+				'assassinat|verbe_sacre+1',
+				'discretion+1',
+				'flatter+1'
 				]
 			},
 			{
 				'cle' : 'mammud',
 				'libelle' : 'Ibn Mammûd Abd-al-Tarek',
 				'bonus' : [
-					'coordination|charme+1',
-					'periple+1',
-					'priere+1',
-					'verbe_sacre+1'
+				'coordination|charme+1',
+				'periple+1',
+				'priere+1',
+				'verbe_sacre+1'
 				]
 			}
 			]
@@ -112,29 +110,29 @@ jQuery(document).ready(function() {
 				'cle' : 'ashkenim',
 				'libelle' : 'Ashkenim',
 				'bonus' : [
-					'coordination|charme+1',
-					'arme+1',
-					'npplf+1',
-					'elegance+1'
+				'coordination|charme+1',
+				'arme+1',
+				'npplf+1',
+				'elegance+1'
 				]
 			},
 			{
 				'cle' : 'pharatim',
 				'libelle' : 'Pharatim',
 				'bonus' : [
-					'sagesse+1',
-					'enseigner+1',
-					'ppl_histoire+1',
-					'science+1'
+				'sagesse+1',
+				'enseigner+1',
+				'ppl_histoire+1',
+				'science+1'
 				]
 			},
 			{
 				'cle' : 'salonim',
 				'libelle' : 'Salonim',
 				'bonus' : [
-					'sagesse+1',
-					'assassinat+1',
-					'science+2'
+				'sagesse+1',
+				'assassinat+1',
+				'science+2'
 				]
 			}
 			]
@@ -146,30 +144,30 @@ jQuery(document).ready(function() {
 				'cle' : 'thereme',
 				'libelle' : 'Thérème',
 				'bonus' : [
-					'coordination+1',
-					'arme+1',
-					'equitation+1',
-					'elegance+1'
+				'coordination+1',
+				'arme+1',
+				'equitation+1',
+				'elegance+1'
 				]
 			},
 			{
 				'cle' : 'fragrance',
 				'libelle' : 'Fragrance',
 				'bonus' : [
-					'coordination|charme+1',
-					'agriculture+1',
-					'equitation+1',
-					'elegance+1'
+				'coordination|charme+1',
+				'agriculture+1',
+				'equitation+1',
+				'elegance+1'
 				]
 			},
 			{
 				'cle' : 'etrusie',
 				'libelle' : 'Étrusie',
 				'bonus' : [
-					'souffle|charme+1',
-					'agriculture+1',
-					'tenir_le_coup+1',
-					'elegance+1'
+				'souffle|charme+1',
+				'agriculture+1',
+				'tenir_le_coup+1',
+				'elegance+1'
 				]
 			}
 			]
@@ -181,30 +179,30 @@ jQuery(document).ready(function() {
 				'cle' : 'aragon',
 				'libelle' : 'Aragón',
 				'bonus' : [
-					'coordination|charme+1',
-					'agriculture+1',
-					'equitation+1',
-					'elegance+1'
+				'coordination|charme+1',
+				'agriculture+1',
+				'equitation+1',
+				'elegance+1'
 				]
 			},
 			{
 				'cle' : 'occidentine',
 				'libelle' : 'Occidentine',
 				'bonus' : [
-					'puissance|sagesse+1',
-					'agriculture+1',
-					'npplf+1',
-					'elegance+1'
+				'puissance|sagesse+1',
+				'agriculture+1',
+				'npplf+1',
+				'elegance+1'
 				]
 			},
 			{
 				'cle' : 'dorkadie',
 				'libelle' : 'Dorkadie',
 				'bonus' : [
-					'puissance|souffle+1',
-					'arme+1',
-					'epreuve+1',
-					'periple+1'
+				'puissance|souffle+1',
+				'arme+1',
+				'epreuve+1',
+				'periple+1'
 				]
 			}
 			]
@@ -212,60 +210,60 @@ jQuery(document).ready(function() {
 	};
 
 	var arbo_parole = [
-		{
-			cle: 'cimeterres_feu',
-			libelle: 'Le Sentier de cimeterres de feu',
-			sang: 'saabi',
-			tribu: 'malik',
-			bonus : [
-				'coordination+1',
-				'arme+1',
-				'epreuve+1',
-				'verbe_sacre+1'
-			]
-		},
-		{
-			cle: 'alchimie_hommes',
-			libelle: "L'alchimie des hommes",
-			sang: 'saabi',
-			tribu: 'mussah',
-			bonus : [
-				'sagesse+1',
-				'inspiration+1',
-				'science+1',
-				'verbe_sacre+1'
-			]
-		},
-		{
-			cle: 'soupcon_traitres',
-			libelle: 'Le soupçon des traîtres',
-			sang: 'saabi',
-			tribu: 'rachid',
-			bonus : [
-				'sagesse+1',
-				'arme+1',
-				'epreuve+1',
-				'verbe_sacre+1'
-			]
-		}
+	{
+		cle: 'cimeterres_feu',
+		libelle: 'Le Sentier de cimeterres de feu',
+		sang: 'saabi',
+		tribu: 'malik',
+		bonus : [
+		'coordination+1',
+		'arme+1',
+		'epreuve+1',
+		'verbe_sacre+1'
+		]
+	},
+	{
+		cle: 'alchimie_hommes',
+		libelle: "L'alchimie des hommes",
+		sang: 'saabi',
+		tribu: 'mussah',
+		bonus : [
+		'sagesse+1',
+		'inspiration+1',
+		'science+1',
+		'verbe_sacre+1'
+		]
+	},
+	{
+		cle: 'soupcon_traitres',
+		libelle: 'Le soupçon des traîtres',
+		sang: 'saabi',
+		tribu: 'rachid',
+		bonus : [
+		'sagesse+1',
+		'arme+1',
+		'epreuve+1',
+		'verbe_sacre+1'
+		]
+	}
 	];
 
 	// caracs
 	var keys_caracs = ['coordination', 'charme', 'puissance', 'souffle', 'sagesse'];
 	var keys_comps = [
-		'epreuve', 'equitation','contes','periple',
-		'science','enseigner','ppl_histoire', 'percevoir',
-		'npplf', 'elegance', 'flatter', 'negoce',
-		'inspiration', 'priere', 'sacrifice', 'verbe_sacre',
-		'arme', 'commander', 'entrainer', 'impressionner',
-		'galvaniser', 'comedie', 'poesie', 'musique',
-		'assassinat', 'detrousser', 'discretion', 's_introduire',
-		'agriculture', 'artisanat', 'compagnonnage', 'tenir_le_coup',
-		];
+	'epreuve', 'equitation','contes','periple',
+	'science','enseigner','ppl_histoire', 'percevoir',
+	'npplf', 'elegance', 'flatter', 'negoce',
+	'inspiration', 'priere', 'sacrifice', 'verbe_sacre',
+	'arme', 'commander', 'entrainer', 'impressionner',
+	'galvaniser', 'comedie', 'poesie', 'musique',
+	'assassinat', 'detrousser', 'discretion', 's_introduire',
+	'agriculture', 'artisanat', 'compagnonnage', 'tenir_le_coup',
+	];
 	var keys_figures = [
-		'aventurer', 'sage', 'prince', 'sorcier',
-		'guerrier', 'poete', 'malandrin', 'travailleur'
-		];
+	'aventurer', 'sage', 'prince', 'sorcier',
+	'guerrier', 'poete', 'malandrin', 'travailleur'
+	];
 	var keys_vertus = ['bravoure', 'foi', 'fidelite'];
 
 	// views
@@ -281,14 +279,15 @@ jQuery(document).ready(function() {
 		if (arbo_sang[value] != undefined) {
 			perso.sang = value;
 			var data_sang = arbo_sang[value];
+			var tribus = [];
 			v.libelle_tribu.html(data_sang.libelle);
 			for (var i = 0; i < data_sang.valeurs.length; i++) {
 				var o = $('<option></option>');
 				o.attr('value', data_sang.valeurs[i].cle);
 				o.text(data_sang.valeurs[i].libelle);
-				$('#tribu').append(o);
+				tribus.push(o);
 			}
-			$('#tribu').change();
+			$('#tribu').append(tribus).change();
 		}
 	});
 	
@@ -323,6 +322,7 @@ jQuery(document).ready(function() {
 
 	// gestion du choix des paroles
 	$('#parole').change(function() {
+		perso.bonus_parole = {};
 		var parole_cle = parseInt($(this).val());
 		if (arbo_parole[parole_cle] != undefined) {
 			var parole = arbo_parole[parole_cle];
@@ -379,14 +379,14 @@ jQuery(document).ready(function() {
 			bonus_type = bonus_keys[j];
 			for (var i = 0; i < keys_caracs.length; i++) {
 				var key = keys_caracs[i];
-				caracs[key] = 0;
+				caracs[key] = caracs[key] || 0;
 				if (this[bonus_type][key] != undefined) {
 					caracs[key] = caracs[key] + this[bonus_type][key];
 				}
 			}
 			for (i = 0; i < keys_comps.length; i++) {
 				key = keys_comps[i];
-				comps[key] = 0;
+				comps[key] = comps[key] || 0;
 				if (this[bonus_type][key] != undefined) {
 					comps[key] = comps[key] + this[bonus_type][key];
 				}
@@ -403,7 +403,7 @@ jQuery(document).ready(function() {
 			$('#'+key).val(perso.caracs[key]);
 		}
 		for (i = 0; i < keys_comps.length; i++) {
-			var key = keys_comps[i];
+			key = keys_comps[i];
 			$('#'+key).val(perso.comps[key]);
 		}
 	}
