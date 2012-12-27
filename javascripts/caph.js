@@ -529,9 +529,9 @@ jQuery(document).ready(function() {
 			vertus_compteur.html(points_a_repartir - sum);
 		}
 	}();
-	
 	$('#vertus_heroiques').on('change', 'input[type=number]', controle_compte_vertus);
 
+	$('#figures').sortable();
 	// Calcule les PV, l'init max, la trempe et la défense passive
 	var calculeLesTrucs = function() {
 		var souffle = parseInt($('#souffle').val()) | 0;
