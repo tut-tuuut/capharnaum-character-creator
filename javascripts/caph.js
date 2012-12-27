@@ -232,7 +232,7 @@ jQuery(document).ready(function() {
 			bonus : [
 				'sagesse+1',
 				'inspiration+1',
-				'sciences+1',
+				'science+1',
 				'verbe_sacre+1'
 			]
 		},
@@ -321,6 +321,20 @@ jQuery(document).ready(function() {
 		$('#parole').html('').append(elements);
 	}());
 
+	// gestion du choix des paroles
+	$('#parole').change(function() {
+		var parole_cle = parseInt($(this).val());
+		if (arbo_parole[parole_cle] != undefined) {
+			var parole = arbo_parole[parole_cle];
+			perso.parole = parole_cle;
+			for (var i = 0; i < parole.bonus.length; i++) {
+				perso.applyBonus(parole.bonus[i], 'bonus_parole');
+			}
+		}
+		perso.calculeTotaux();
+		perso.synchroWithView();
+	});
+
 	perso.applyBonus = function(bonus_str, bonus_key, async) {
 		var kv = bonus_str.split('+');
 		var key = kv[0];
@@ -359,18 +373,23 @@ jQuery(document).ready(function() {
 		var comps = {};
 		var caracs = {};
 		var vertus = {};
-		for (var i = 0; i < keys_caracs.length; i++) {
-			var key = keys_caracs[i];
-			caracs[key] = 0;
-			if (this.bonus_sang[key] != undefined) {
-				caracs[key] = caracs[key] + this.bonus_sang[key];
+		var bonus_keys = ['bonus_sang', 'bonus_parole'];
+		var bonus_type = '';
+		for (var j = 0; j < bonus_keys.length; j++) {
+			bonus_type = bonus_keys[j];
+			for (var i = 0; i < keys_caracs.length; i++) {
+				var key = keys_caracs[i];
+				caracs[key] = 0;
+				if (this[bonus_type][key] != undefined) {
+					caracs[key] = caracs[key] + this[bonus_type][key];
+				}
 			}
-		}
-		for (var i = 0; i < keys_comps.length; i++) {
-			var key = keys_comps[i];
-			comps[key] = 0;
-			if (this.bonus_sang[key] != undefined) {
-				comps[key] = comps[key] + this.bonus_sang[key];
+			for (i = 0; i < keys_comps.length; i++) {
+				key = keys_comps[i];
+				comps[key] = 0;
+				if (this[bonus_type][key] != undefined) {
+					comps[key] = comps[key] + this[bonus_type][key];
+				}
 			}
 		}
 		perso.comps = comps;
