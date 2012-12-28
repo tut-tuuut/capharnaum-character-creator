@@ -618,7 +618,7 @@ jQuery(document).ready(function() {
 		var bonus_comps = perso.calculeBonus().comps;
 		var before = bonus_comps[key] | 0;
 		var bonus = value - before;
-		if (before < 6 && bonus < 0) {
+		if ((before < 6 && bonus < 0) || (value < 5 && before > 6)) {
 			perso.calculeTotaux();
 			perso.synchroWithView();
 			return;
