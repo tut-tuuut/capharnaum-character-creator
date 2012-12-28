@@ -116,6 +116,36 @@
     </div>
 
     <div class="row">
+        <fieldset id="vertus_heroiques">
+            <legend>Vertus héroïques</legend>
+            <div class="row">
+                <div class="four columns">
+                    <label for="foi">Foi</label>
+                    <input type="number" id="foi" min="1" max="6" value="0">
+                </div>
+                <div class="four columns">
+                    <label for="bravoure">Bravoure</label>
+                    <input type="number" id="bravoure" min="1" max="6" value="0">
+                </div>
+                <div class="four columns">
+                    <label for="fidelite">Fidélité</label>
+                    <input type="number" id="fidelite" min="1" max="6" value="0">
+                </div>
+            </div>
+            <div class="row">
+                <div class="five columns">
+                    <label for="heroisme">Héroïsme</label>
+                    <input type="number" readonly id="heroisme">
+                </div>
+                <div class="five columns">
+                    <label>Reste à répartir : <strong id="vertus_points">10</strong></label>
+                </div>
+
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="row">
         <fieldset id="caracteristiques">
             <legend>Caractéristiques</legend>
             <div class="row">
@@ -169,36 +199,6 @@
                 </div>
             </div>
 
-        </fieldset>
-    </div>
-
-    <div class="row">
-        <fieldset id="vertus_heroiques">
-            <legend>Vertus héroïques</legend>
-            <div class="row">
-                <div class="four columns">
-                    <label for="foi">Foi</label>
-                    <input type="number" id="foi" min="1" max="6" value="0">
-                </div>
-                <div class="four columns">
-                    <label for="bravoure">Bravoure</label>
-                    <input type="number" id="bravoure" min="1" max="6" value="0">
-                </div>
-                <div class="four columns">
-                    <label for="fidelite">Fidélité</label>
-                    <input type="number" id="fidelite" min="1" max="6" value="0">
-                </div>
-            </div>
-            <div class="row">
-                <div class="five columns">
-                    <label for="heroisme">Héroïsme</label>
-                    <input type="number" readonly id="heroisme">
-                </div>
-                <div class="five columns">
-                    <label>Reste à répartir : <strong id="vertus_points">10</strong></label>
-                </div>
-
-            </div>
         </fieldset>
     </div>
 
