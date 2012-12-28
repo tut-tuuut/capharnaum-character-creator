@@ -17,3 +17,9 @@
 	background-color: #e4e4e4;
 }
 
+#competences input.ok {
+	border-color: #4cc24c;
+}
+#competences input.ko {
+	border-color: #ec5b5b;
+}
