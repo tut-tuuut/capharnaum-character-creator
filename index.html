@@ -34,6 +34,17 @@
 
     <h1 class="row">Capharnaüm - fiche de perso web interactive</h1>
     <div class="row">
+        <div class="alert-box">
+            <p>Cette page est plus plaisante à utiliser sur Google Chrome, grâce aux boutons +/– intégrés nativement aux champs input de type "number".
+            <p><img src="images/plusmoins.png" alt="">
+          <a href="" class="close">&times;</a>
+        </div>
+        <div class="alert-box">
+            <p>Pour l'instant fonctionnent seulement les étapes 1, 2, 3 et 4.</p>
+            <a href="" class="close">&times;</a>
+        </div>
+    </div>
+    <div class="row">
         <fieldset>
             <legend>Étapes de la création</legend>
 
@@ -82,12 +93,17 @@
                 <div class="six columns">
                     <fieldset>
                         <legend>4. Figures et compétences</legend>
-                        <ol>
-                            <li>Noter 1 point dans les compétences Négoce et Salamalecs, Inspiration, Prière et Tenir le coup.</li>
-                            <li>Classer les figures par ordre décroissant de correspondance avec le personnage, puis leur attribuer les scores suivants : 3, 2, 1, 1, 1, 0, 0, 0.</li>
-                            <li>Ajouter aux compétences le score de la figure dont elles dépendent, sans oublier les acquis de l'étape 1. (Maximum 5.)</li>
-                        </ol>
-                        <p>Note : Il est impossible de dépasser le score de 5 dans une compétence lors de la création de personnage. Si le cas se produit, le joueur doit mettre ses points de côté pour les ajouter aux points de répartition libre à l'étape 5.</p>
+                        <p>Classer les figures par ordre décroissant de préférence :</p>
+                        <ul class="sortable" id="figures">
+                            <li id="fig_0">L'Aventurier</li>
+                            <li id="fig_1">Le Sage</li>
+                            <li id="fig_2">Le Prince</li>
+                            <li id="fig_3">Le Sorcier</li>
+                            <li id="fig_4">Le Guerrier</li>
+                            <li id="fig_5">Le Poète</li>
+                            <li id="fig_6">Le Malandrin</li>
+                            <li id="fig_7">Le Travailleur</li>
+                        </ul>
                     </fieldset>
                 </div>
                 <div class="six columns">
@@ -108,8 +124,43 @@
     </div>
 
     <div class="row">
+        <fieldset id="vertus_heroiques">
+            <legend>Vertus héroïques</legend>
+            <div class="row">
+                <div class="four columns">
+                    <label for="foi">Foi</label>
+                    <input type="number" id="foi" min="1" max="6" value="0">
+                </div>
+                <div class="four columns">
+                    <label for="bravoure">Bravoure</label>
+                    <input type="number" id="bravoure" min="1" max="6" value="0">
+                </div>
+                <div class="four columns">
+                    <label for="fidelite">Fidélité</label>
+                    <input type="number" id="fidelite" min="1" max="6" value="0">
+                </div>
+            </div>
+            <div class="row">
+                <div class="five columns">
+                    <label for="heroisme">Héroïsme</label>
+                    <input type="number" readonly id="heroisme">
+                </div>
+                <div class="five columns">
+                    <label>Reste à répartir : <strong id="vertus_points">10</strong></label>
+                </div>
+
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="row">
         <fieldset id="caracteristiques">
             <legend>Caractéristiques</legend>
+            <div class="row">
+                <div class="three columns offset-by-nine">
+                    Reste à répartir : <strong id="points_carac">6</strong>
+                </div>
+            </div>
             <div class="row">
                 <div class="six columns">
                     <label for="coordination">Coordination</label>
@@ -160,38 +211,13 @@
     </div>
 
     <div class="row">
-        <fieldset id="vertus_heroiques">
-            <legend>Vertus héroïques</legend>
-            <div class="row">
-                <div class="four columns">
-                    <label for="foi">Foi</label>
-                    <input type="number" id="foi" min="1" max="6" value="0">
-                </div>
-                <div class="four columns">
-                    <label for="bravoure">Bravoure</label>
-                    <input type="number" id="bravoure" min="1" max="6" value="0">
-                </div>
-                <div class="four columns">
-                    <label for="fidelite">Fidélité</label>
-                    <input type="number" id="fidelite" min="1" max="6" value="0">
-                </div>
-            </div>
-            <div class="row">
-                <div class="five columns">
-                    <label for="heroisme">Héroïsme</label>
-                    <input type="number" readonly id="heroisme">
-                </div>
-                <div class="five columns">
-                    <label>Reste à répartir : <strong id="vertus_points">10</strong></label>
-                </div>
-
-            </div>
-        </fieldset>
-    </div>
-
-    <div class="row">
-        <fieldset>
+        <fieldset id="competences">
             <legend>Compétences</legend>
+            <div class="row">
+                <div class="two columns offset-by-ten">
+                    Reste à répartir : <strong id="points_comp">5</strong>
+                </div>
+            </div>
             <div class="row">
                 <div class="three columns">
                     <fieldset>
@@ -409,6 +435,7 @@
 <!-- Included JS Files (Compressed) -->
 <script src="javascripts/jquery.js"></script>
 <script src="javascripts/foundation.min.js"></script>
+<script src="javascripts/jquery-ui-1.9.2.custom.min.js"></script>
 <script src="javascripts/caph.js"></script>
 <!-- Initialize JS Plugins -->
 <script src="javascripts/app.js"></script>

@@ -5,8 +5,15 @@ jQuery(document).ready(function() {
 		bonus_sang : {
 		},
 		bonus_parole : {
-		}
+		},
+		bonus_figure : {
+		},
+		bonus_etape_3 : {
+		},
+		bonus_etape_5 : {
+		},
 	}
+	
 	var arbo_sang = {
 		'saabi' : {
 			'libelle': "Clan",
@@ -396,6 +403,42 @@ jQuery(document).ready(function() {
 		'flatter+1',
 		'sacrifice+1'
 		]
+	},
+	{
+		cle: 'duellistes',
+		libelle: 'Les Duellistes de San Llorente de Valladòn',
+		sang: 'escarte',
+		tribu: 'aragon',
+		bonus : [
+		'coordination+1',
+		'arme+1',
+		'equitation+1',
+		'agriculture+1'
+		]
+	},
+	{
+		cle: 'gerta_dragon',
+		libelle: 'Sainte Gerta qui pourfendit le dragon',
+		sang: 'escarte',
+		tribu: 'dorkadie',
+		bonus : [
+		'puissance+1',
+		'arme+1',
+		'entrainer+1',
+		'impressionner+1'
+		]
+	},
+	{
+		cle: 'temple_sagrada',
+		libelle: 'Ordre du Temple de Sagrada',
+		sang: 'escarte',
+		tribu: 'occidentine',
+		bonus : [
+		'coordination+1',
+		'armes+1',
+		'priere+1',
+		'verbe_sacre+1'
+		]
 	}
 
 	];
@@ -469,7 +512,10 @@ jQuery(document).ready(function() {
 		var elements = [];
 		elements.push($('<option value="">– Sélectionner…</option>'));
 		for (i = 0; i < arbo_parole.length; i++) {
-			elements.push($('<option value="'+i+'">'+arbo_parole[i].libelle+'</option>'));
+			elements.push($('<option value="'+i+'">'+
+				arbo_parole[i].libelle+
+				' ('+arbo_parole[i].sang+' / '+arbo_parole[i].tribu+')'+
+				'</option>'));
 		}
 		$('#parole').html('').append(elements);
 	}());
@@ -516,8 +562,75 @@ jQuery(document).ready(function() {
 			vertus_compteur.html(points_a_repartir - sum);
 		}
 	}();
-	
 	$('#vertus_heroiques').on('change', 'input[type=number]', controle_compte_vertus);
+
+	// Gestion des figures
+	$('#figures').sortable();
+	var getBonusFromI = function(i) {
+		if (i === 0) {
+			return 3;
+		}
+		if (i === 1) {
+			return 2;
+		}
+		if (i <= 4) {
+			return 1;
+		}
+		return 0;
+	}
+	$('#figures').on('sortupdate', function() {
+		var ids = $('#figures').sortable('toArray');
+		perso.bonus_figure = {};
+		for (var i = 0; i < ids.length; i++) {
+			var fig_key = parseInt(ids[i].split('_')[1]);
+			for (var j = 4*fig_key; j <= 4*fig_key+3; j++) {
+				var bonus_str = keys_comps[j]+'+'+getBonusFromI(i);
+				perso.applyBonus(bonus_str, 'bonus_figure');
+			}
+		}
+		perso.calculeTotaux();
+		perso.synchroWithView();
+	});
+
+	// répartition libre des caracs
+	$('#caracteristiques').on('change', 'input[type=number]', function() {
+		var key = this.id;
+		var value = $(this).val();
+		var bonus_caracs = perso.calculeBonus().caracs;
+		var before = bonus_caracs[key] | 0;
+		var bonus = value - before;
+
+		if (bonus < 0) {
+			perso.calculeTotaux();
+			perso.synchroWithView();
+			return;
+		}
+		perso.applyBonus(key+'+'+bonus, 'bonus_etape_3');
+
+		perso.calculeTotaux();
+		perso.synchroWithView();
+	});
+
+	// répartition libre des compétences
+	$('#competences').on('change', 'input[type=number]', function() {
+		var key = this.id;
+		var value = $(this).val();
+		var bonus_comps = perso.calculeBonus().comps;
+		var before = bonus_comps[key] | 0;
+		var bonus = value - before;
+		if ((before < 6 && bonus < 0) || (value < 5 && before > 6)) {
+			perso.calculeTotaux();
+			perso.synchroWithView();
+			return;
+		}
+		if (before > 5) {
+			bonus = value - 5;
+		}
+		perso.applyBonus(key+'+'+bonus, 'bonus_etape_5');
+
+		perso.calculeTotaux();
+		perso.synchroWithView();
+	});
 
 	// Calcule les PV, l'init max, la trempe et la défense passive
 	var calculeLesTrucs = function() {
@@ -577,11 +690,23 @@ jQuery(document).ready(function() {
 		}
 	}
 
-	perso.calculeTotaux = function() {
-		var comps = {};
-		var caracs = {};
-		var vertus = {};
-		var bonus_keys = ['bonus_sang', 'bonus_parole'];
+	// utilisé pendant les phases de répartition libres
+	perso.calculeBonus = function() {
+		var comps = {
+			negoce: 1,
+			inspiration: 1,
+			priere: 1,
+			tenir_le_coup: 1
+		};
+		// Points assignés d'office au début de l'étape 3
+		var caracs = {
+			coordination: 1,
+			charme: 1,
+			puissance: 1,
+			souffle: 1,
+			sagesse: 1
+		};
+		var bonus_keys = ['bonus_sang', 'bonus_parole', 'bonus_figure'];
 		var bonus_type = '';
 		for (var j = 0; j < bonus_keys.length; j++) {
 			bonus_type = bonus_keys[j];
@@ -600,9 +725,59 @@ jQuery(document).ready(function() {
 				}
 			}
 		}
-		perso.comps = comps;
-		perso.caracs = caracs;
-		perso.vertus = vertus;
+		return {
+			'comps': comps,
+			'caracs': caracs
+		}
+	};
+
+	perso.calculeTotaux = function() {
+		// Points assignés d'office au début de l'étape 4
+		var comps = {
+			negoce: 1,
+			inspiration: 1,
+			priere: 1,
+			tenir_le_coup: 1
+		};
+		// Points assignés d'office au début de l'étape 3
+		var caracs = {
+			coordination: 1,
+			charme: 1,
+			puissance: 1,
+			souffle: 1,
+			sagesse: 1
+		};
+		var bonus_keys = ['bonus_sang', 'bonus_parole', 'bonus_figure', 'bonus_etape_3', 'bonus_etape_5'];
+		var bonus_type = '';
+		var repartition_libre_competences = 5;
+		for (var j = 0; j < bonus_keys.length; j++) {
+			bonus_type = bonus_keys[j];
+			for (var i = 0; i < keys_caracs.length; i++) {
+				var key = keys_caracs[i];
+				caracs[key] = caracs[key] || 0;
+				if (this[bonus_type][key] != undefined) {
+					caracs[key] = caracs[key] + this[bonus_type][key];
+				}
+			}
+			for (i = 0; i < keys_comps.length; i++) {
+				key = keys_comps[i];
+				comps[key] = comps[key] || 0;
+				if (this[bonus_type][key] != undefined) {
+					comps[key] = comps[key] + this[bonus_type][key];
+					if (bonus_type !== 'bonus_etape_5' && comps[key] > 5) {
+						// Les points en trop sont à répartir librement par ailleurs.
+						// On peut quand même dépasser un score de 5 à l'étape 5 (répartition libre)
+						// pour gérer les cas particuliers (tirages heureux dans les tables, par exemple…).
+						repartition_libre_competences += comps[key] - 5;
+						comps[key] = 5;
+					}
+				}
+			}
+		}
+		this.comps = comps;
+		this.caracs = caracs;
+		this.repartition_libre_competences = repartition_libre_competences;
+		calculeLesTrucs();
 	}
 
 	perso.synchroWithView = function() {
@@ -614,9 +789,28 @@ jQuery(document).ready(function() {
 			key = keys_comps[i];
 			$('#'+key).val(perso.comps[key]);
 		}
+
+		var bonus_etape_3 = perso.bonus_etape_3;
+		var sum = 0;
+		for (val in bonus_etape_3) {
+			sum += bonus_etape_3[val];
+		}
+
+		$('#points_carac').html(6 - sum);
+
+		var bonus_etape_5 = perso.bonus_etape_5;
+		var sum = 0;
+		for (val in bonus_etape_5) {
+			sum += bonus_etape_5[val];
+		}
+		$('#points_comp').html(perso.repartition_libre_competences - sum);
+
+		calculeLesTrucs();
 	}
 
 	$('#sang').change();
+	perso.calculeTotaux();
+	perso.synchroWithView();
 
 	window.perso = perso;
 });

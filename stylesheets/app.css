@@ -1,29 +1,19 @@
 /* Artfully masterminded by ZURB  */
 
-/* -------------------------------------------------- 
-   Table of Contents
------------------------------------------------------
-:: Shared Styles
-:: Page Name 1
-:: Page Name 2
-*/
-
-
-/* -----------------------------------------
-   Shared Styles
------------------------------------------ */
-
-
-
-/* -----------------------------------------
-   Page Name 1
------------------------------------------ */
-
-
-
-
-/* -----------------------------------------
-   Page Name 2
------------------------------------------ */
-
+#figures {
+	list-style-type: none;
+	background: url(../images/bonus_figures.png) 85% 0 no-repeat;
+}
+#figures li {
+	background: #eee;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	margin-bottom: 2px;
+	padding: 0 1em;
+	width: 75%;
+	cursor: move;
+}
+#figures li:hover {
+	background-color: #e4e4e4;
+}
 
