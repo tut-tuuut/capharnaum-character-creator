@@ -8,6 +8,10 @@ jQuery(document).ready(function() {
 		},
 		bonus_figure : {
 		},
+		bonus_etape_3 : {
+		},
+		bonus_etape_5 : {
+		},
 	}
 	
 	var arbo_sang = {
@@ -588,6 +592,26 @@ jQuery(document).ready(function() {
 		perso.synchroWithView();
 	});
 
+	$('#caracteristiques').on('change', 'input[type=number]', function() {
+		console.log(this.id, $(this).val());
+		var key = this.id;
+		var value = $(this).val();
+		var bonus_caracs = perso.calculeBonus().caracs;
+		var before = bonus_caracs[key] | 0;
+		var bonus = value - before;
+		console.log(value - before);
+		perso.applyBonus(key+'+'+bonus, 'bonus_etape_3');
+
+		var bonus_etape_3 = perso.bonus_etape_3;
+		var sum = 0;
+		for (val in bonus_etape_3) {
+			console.log(val);
+			sum += bonus_etape_3[val];
+		}
+
+		$('#points_carac').html(6 - sum);
+	});
+
 	// Calcule les PV, l'init max, la trempe et la défense passive
 	var calculeLesTrucs = function() {
 		var souffle = parseInt($('#souffle').val()) | 0;
@@ -646,8 +670,8 @@ jQuery(document).ready(function() {
 		}
 	}
 
-	perso.calculeTotaux = function() {
-		// Points assignés d'office au début de l'étape 4
+	// utilisé pendant les phases de répartition libres
+	perso.calculeBonus = function() {
 		var comps = {
 			negoce: 1,
 			inspiration: 1,
@@ -681,8 +705,49 @@ jQuery(document).ready(function() {
 				}
 			}
 		}
-		perso.comps = comps;
-		perso.caracs = caracs;
+		return {
+			'comps': comps,
+			'caracs': caracs
+		}
+	};
+
+	perso.calculeTotaux = function() {
+		// Points assignés d'office au début de l'étape 4
+		var comps = {
+			negoce: 1,
+			inspiration: 1,
+			priere: 1,
+			tenir_le_coup: 1
+		};
+		// Points assignés d'office au début de l'étape 3
+		var caracs = {
+			coordination: 1,
+			charme: 1,
+			puissance: 1,
+			souffle: 1,
+			sagesse: 1
+		};
+		var bonus_keys = ['bonus_sang', 'bonus_parole', 'bonus_figure', 'bonus_etape_3', 'bonus_etape_5'];
+		var bonus_type = '';
+		for (var j = 0; j < bonus_keys.length; j++) {
+			bonus_type = bonus_keys[j];
+			for (var i = 0; i < keys_caracs.length; i++) {
+				var key = keys_caracs[i];
+				caracs[key] = caracs[key] || 0;
+				if (this[bonus_type][key] != undefined) {
+					caracs[key] = caracs[key] + this[bonus_type][key];
+				}
+			}
+			for (i = 0; i < keys_comps.length; i++) {
+				key = keys_comps[i];
+				comps[key] = comps[key] || 0;
+				if (this[bonus_type][key] != undefined) {
+					comps[key] = comps[key] + this[bonus_type][key];
+				}
+			}
+		}
+		this.comps = comps;
+		this.caracs = caracs;
 	}
 
 	perso.synchroWithView = function() {
