@@ -607,14 +607,6 @@ jQuery(document).ready(function() {
 		}
 		perso.applyBonus(key+'+'+bonus, 'bonus_etape_3');
 
-		var bonus_etape_3 = perso.bonus_etape_3;
-		var sum = 0;
-		for (val in bonus_etape_3) {
-			sum += bonus_etape_3[val];
-		}
-
-		$('#points_carac').html(6 - sum);
-
 		perso.calculeTotaux();
 		perso.synchroWithView();
 	});
@@ -626,21 +618,13 @@ jQuery(document).ready(function() {
 		var bonus_comps = perso.calculeBonus().comps;
 		var before = bonus_comps[key] | 0;
 		var bonus = value - before;
-
+		console.log('bonus', bonus);
 		if (bonus < 0) {
 			perso.calculeTotaux();
 			perso.synchroWithView();
 			return;
 		}
 		perso.applyBonus(key+'+'+bonus, 'bonus_etape_5');
-
-		var bonus_etape_5 = perso.bonus_etape_5;
-		var sum = 0;
-		for (val in bonus_etape_5) {
-			sum += bonus_etape_5[val];
-		}
-
-		$('#points_comp').html(5 - sum);
 
 		perso.calculeTotaux();
 		perso.synchroWithView();
@@ -763,6 +747,7 @@ jQuery(document).ready(function() {
 		};
 		var bonus_keys = ['bonus_sang', 'bonus_parole', 'bonus_figure', 'bonus_etape_3', 'bonus_etape_5'];
 		var bonus_type = '';
+		var repartition_libre_competences = 5;
 		for (var j = 0; j < bonus_keys.length; j++) {
 			bonus_type = bonus_keys[j];
 			for (var i = 0; i < keys_caracs.length; i++) {
@@ -777,11 +762,17 @@ jQuery(document).ready(function() {
 				comps[key] = comps[key] || 0;
 				if (this[bonus_type][key] != undefined) {
 					comps[key] = comps[key] + this[bonus_type][key];
+					if (comps[key] > 5) {
+						// les points en trop sont à répartir librement par ailleurs
+						repartition_libre_competences += comps[key] - 5;
+						comps[key] = 5;
+					}
 				}
 			}
 		}
 		this.comps = comps;
 		this.caracs = caracs;
+		this.repartition_libre_competences = repartition_libre_competences;
 		calculeLesTrucs();
 	}
 
@@ -794,10 +785,27 @@ jQuery(document).ready(function() {
 			key = keys_comps[i];
 			$('#'+key).val(perso.comps[key]);
 		}
+
+		var bonus_etape_3 = perso.bonus_etape_3;
+		var sum = 0;
+		for (val in bonus_etape_3) {
+			sum += bonus_etape_3[val];
+		}
+
+		$('#points_carac').html(6 - sum);
+
+		var bonus_etape_5 = perso.bonus_etape_5;
+		var sum = 0;
+		for (val in bonus_etape_5) {
+			sum += bonus_etape_5[val];
+		}
+		$('#points_comp').html(perso.repartition_libre_competences - sum);
 	}
 
 	$('#sang').change();
 	perso.calculeTotaux();
 	perso.synchroWithView();
+	$('#arme').change();
+
 	window.perso = perso;
 });
