@@ -592,6 +592,7 @@ jQuery(document).ready(function() {
 		perso.synchroWithView();
 	});
 
+	// répartition libre des caracs
 	$('#caracteristiques').on('change', 'input[type=number]', function() {
 		var key = this.id;
 		var value = $(this).val();
@@ -613,6 +614,33 @@ jQuery(document).ready(function() {
 		}
 
 		$('#points_carac').html(6 - sum);
+
+		perso.calculeTotaux();
+		perso.synchroWithView();
+	});
+
+	// répartition libre des compétences
+	$('#competences').on('change', 'input[type=number]', function() {
+		var key = this.id;
+		var value = $(this).val();
+		var bonus_comps = perso.calculeBonus().comps;
+		var before = bonus_comps[key] | 0;
+		var bonus = value - before;
+
+		if (bonus < 0) {
+			perso.calculeTotaux();
+			perso.synchroWithView();
+			return;
+		}
+		perso.applyBonus(key+'+'+bonus, 'bonus_etape_5');
+
+		var bonus_etape_5 = perso.bonus_etape_5;
+		var sum = 0;
+		for (val in bonus_etape_5) {
+			sum += bonus_etape_5[val];
+		}
+
+		$('#points_comp').html(5 - sum);
 
 		perso.calculeTotaux();
 		perso.synchroWithView();
