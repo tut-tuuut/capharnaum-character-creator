@@ -618,11 +618,13 @@ jQuery(document).ready(function() {
 		var bonus_comps = perso.calculeBonus().comps;
 		var before = bonus_comps[key] | 0;
 		var bonus = value - before;
-		console.log('bonus', bonus);
-		if (bonus < 0) {
+		if (before < 6 && bonus < 0) {
 			perso.calculeTotaux();
 			perso.synchroWithView();
 			return;
+		}
+		if (before > 5) {
+			bonus = value - 5;
 		}
 		perso.applyBonus(key+'+'+bonus, 'bonus_etape_5');
 
@@ -762,8 +764,10 @@ jQuery(document).ready(function() {
 				comps[key] = comps[key] || 0;
 				if (this[bonus_type][key] != undefined) {
 					comps[key] = comps[key] + this[bonus_type][key];
-					if (comps[key] > 5) {
-						// les points en trop sont à répartir librement par ailleurs
+					if (bonus_type !== 'bonus_etape_5' && comps[key] > 5) {
+						// Les points en trop sont à répartir librement par ailleurs.
+						// On peut quand même dépasser un score de 5 à l'étape 5 (répartition libre)
+						// pour gérer les cas particuliers (tirages heureux dans les tables, par exemple…).
 						repartition_libre_competences += comps[key] - 5;
 						comps[key] = 5;
 					}
@@ -800,12 +804,13 @@ jQuery(document).ready(function() {
 			sum += bonus_etape_5[val];
 		}
 		$('#points_comp').html(perso.repartition_libre_competences - sum);
+
+		calculeLesTrucs();
 	}
 
 	$('#sang').change();
 	perso.calculeTotaux();
 	perso.synchroWithView();
-	$('#arme').change();
 
 	window.perso = perso;
 });
