@@ -626,6 +626,15 @@ jQuery(document).ready(function() {
 		if (before > 5) {
 			bonus = value - 5;
 		}
+
+		if (bonus > 1) {
+			$(this).addClass('ko');
+		} else if (bonus == 1) {
+			$(this).addClass('ok');
+			$(this).removeClass('ko');
+		} else if (bonus == 0) {
+			$(this).removeClass('ok').removeClass('ko');
+		}
 		perso.applyBonus(key+'+'+bonus, 'bonus_etape_5');
 
 		perso.calculeTotaux();
