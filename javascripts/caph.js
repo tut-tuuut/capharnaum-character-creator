@@ -593,23 +593,29 @@ jQuery(document).ready(function() {
 	});
 
 	$('#caracteristiques').on('change', 'input[type=number]', function() {
-		console.log(this.id, $(this).val());
 		var key = this.id;
 		var value = $(this).val();
 		var bonus_caracs = perso.calculeBonus().caracs;
 		var before = bonus_caracs[key] | 0;
 		var bonus = value - before;
-		console.log(value - before);
+
+		if (bonus < 0) {
+			perso.calculeTotaux();
+			perso.synchroWithView();
+			return;
+		}
 		perso.applyBonus(key+'+'+bonus, 'bonus_etape_3');
 
 		var bonus_etape_3 = perso.bonus_etape_3;
 		var sum = 0;
 		for (val in bonus_etape_3) {
-			console.log(val);
 			sum += bonus_etape_3[val];
 		}
 
 		$('#points_carac').html(6 - sum);
+
+		perso.calculeTotaux();
+		perso.synchroWithView();
 	});
 
 	// Calcule les PV, l'init max, la trempe et la défense passive
@@ -748,6 +754,7 @@ jQuery(document).ready(function() {
 		}
 		this.comps = comps;
 		this.caracs = caracs;
+		calculeLesTrucs();
 	}
 
 	perso.synchroWithView = function() {
