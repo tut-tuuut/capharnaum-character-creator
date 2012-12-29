@@ -23,3 +23,7 @@
 #competences input.ko {
 	border-color: #ec5b5b;
 }
+
+.repartition_compte {
+	text-align:right;
+}
