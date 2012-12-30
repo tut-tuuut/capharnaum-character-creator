@@ -676,9 +676,9 @@ jQuery(document).ready(function() {
 			var popin = $('#lapopin');
 			popin.html('');
 			var el = $('<div></div>');
-			el.append('<h2>Choix à faire...</h2>');
+			el.append('<h2 class="choix">Que souhaitez-vous privilégier ?</h2>');
 			for (var i = 0; i < choices.length; i++) {
-				var button = $('<button>'+choices[i]+'</button>');
+				var button = $('<button class="button">'+choices[i]+'</button>');
 				var new_bonus_str = choices[i]+'+'+val;
 				button.click( function(i) {
 					return function() {
@@ -687,6 +687,8 @@ jQuery(document).ready(function() {
 					};
 				}(new_bonus_str));
 				el.append(button);
+				if (i==0)
+					el.append('<span>&nbsp;ou&nbsp;</span>');
 			}
 			popin.append(el);
 			popin.reveal();
