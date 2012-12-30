@@ -824,4 +824,12 @@ jQuery(document).ready(function() {
 	perso.synchroWithView();
 
 	window.perso = perso;
+	
+	$('input[type=number]').change(function() {
+		if (isNaN($(this).val() / 1) == true) {
+			$(this).addClass('error');
+		} else {
+			$(this).removeClass('error');
+		}
+	});
 });
