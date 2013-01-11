@@ -435,7 +435,7 @@ jQuery(document).ready(function() {
 		tribu: 'occidentine',
 		bonus : [
 		'coordination+1',
-		'armes+1',
+		'arme+1',
 		'priere+1',
 		'verbe_sacre+1'
 		]
