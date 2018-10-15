@@ -248,9 +248,9 @@ jQuery(document).ready(function() {
 		tribu: 'rachid',
 		bonus : [
 		'sagesse+1',
-		'arme+1',
-		'epreuve+1',
-		'verbe_sacre+1'
+		'assassinat+1',
+		'discretion+1',
+		'elegance+1'
 		]
 	},
 	{
